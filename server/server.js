@@ -4,6 +4,13 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
 dotenv.config();
+
+// Debug: Log which env vars are available (names only, not values for security)
+console.log('🔍 Environment variables available:', Object.keys(process.env).filter(k => 
+  ['MONGODB_URI', 'JWT_SECRET', 'JWT_EXPIRE', 'CLIENT_URL', 'PORT'].includes(k)
+));
+console.log('🔍 MONGODB_URI defined?', !!process.env.MONGODB_URI);
+
 connectDB();
 
 const app = express();
