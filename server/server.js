@@ -6,7 +6,7 @@ const connectDB = require('./config/db');
 dotenv.config();
 
 // Debug: Log which env vars are available (names only, not values for security)
-console.log('🔍 Environment variables available:', Object.keys(process.env).filter(k => 
+console.log('🔍 Environment variables available:', Object.keys(process.env).filter(k =>
   ['MONGODB_URI', 'JWT_SECRET', 'JWT_EXPIRE', 'CLIENT_URL', 'PORT'].includes(k)
 ));
 console.log('🔍 MONGODB_URI defined?', !!process.env.MONGODB_URI);
@@ -15,7 +15,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_URL || 'https://shiksha-vid.vercel.app', credentials: true }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
