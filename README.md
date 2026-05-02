@@ -17,9 +17,12 @@ mongod
 ```bash
 cd server
 npm install
-npm run seed   # Load sample data
+npm run seed   # Load sample data (local/dev only)
 npm run dev    # Start on port 5000
 ```
+
+⚠️ **Production safety:** Never run `npm run seed` on production.  
+The seed script wipes existing data and now refuses to run in production unless `ALLOW_PRODUCTION_SEED=true` is explicitly set.
 
 ### 3. Setup Client
 ```bash
@@ -91,6 +94,7 @@ ShikshaVid-AG/
 │   ├── utils/
 │   │   ├── email.js
 │   │   ├── scoring.js
+│   │   ├── createAdmin.js
 │   │   └── seed.js
 │   ├── server.js
 │   └── .env
@@ -152,6 +156,23 @@ Update `server/.env` with your Gmail credentials:
 ```
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_app_password
+```
+
+### Create or Reset Admin (Safe)
+Use this instead of seed on production:
+```bash
+cd server
+# PowerShell example:
+$env:ADMIN_EMAIL="admin@shikshavid.com"
+$env:ADMIN_PASSWORD="your_strong_password"
+npm run create-admin
+```
+
+### Demo Credentials Card (Frontend)
+The login page now hides demo credentials by default in production.
+To show it explicitly:
+```
+VITE_SHOW_DEMO_CREDENTIALS=true
 ```
 
 ## 📱 Features

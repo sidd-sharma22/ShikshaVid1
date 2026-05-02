@@ -10,6 +10,11 @@ const Booking = require('../models/Booking');
 
 const seedData = async () => {
   try {
+    if (process.env.NODE_ENV === 'production' && process.env.ALLOW_PRODUCTION_SEED !== 'true') {
+      console.error('Refusing to run seed in production. Set ALLOW_PRODUCTION_SEED=true only if you explicitly intend to wipe data.');
+      process.exit(1);
+    }
+
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('Connected to MongoDB');
 

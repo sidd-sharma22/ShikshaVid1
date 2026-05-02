@@ -10,6 +10,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+  const showDemoCredentials =
+    import.meta.env.DEV || import.meta.env.VITE_SHOW_DEMO_CREDENTIALS === 'true';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,14 +92,16 @@ const Login = () => {
           </div>
 
           {/* Quick login hints */}
-          <div className="mt-6 p-3 bg-surface-50 rounded-xl">
-            <p className="text-xs font-medium text-surface-500 mb-2">Quick Login (Demo):</p>
-            <div className="space-y-1 text-xs text-surface-400">
-              <p>Admin: admin@shikshavid.com / Admin@123</p>
-              <p>Student: rahul@test.com / Test@123</p>
-              <p>Teacher: rajesh@test.com / Test@123</p>
+          {showDemoCredentials && (
+            <div className="mt-6 p-3 bg-surface-50 rounded-xl">
+              <p className="text-xs font-medium text-surface-500 mb-2">Quick Login (Demo):</p>
+              <div className="space-y-1 text-xs text-surface-400">
+                <p>Admin: admin@shikshavid.com / Admin@123</p>
+                <p>Student: rahul@test.com / Test@123</p>
+                <p>Teacher: rajesh@test.com / Test@123</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
