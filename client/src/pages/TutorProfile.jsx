@@ -26,7 +26,7 @@ const TutorProfile = () => {
         ]);
         setTeacher(tRes.data.teacher);
         setReviews(rRes.data.reviews || []);
-      } catch (err) { toast.error('Failed to load profile'); }
+      } catch { toast.error('Failed to load profile'); }
       finally { setLoading(false); }
     };
     fetchData();
@@ -60,13 +60,13 @@ const TutorProfile = () => {
   };
 
   if (loading) return (
-    <div className="min-h-screen pt-20 flex items-center justify-center">
+    <div className="min-h-screen pt-24 sm:pt-28 flex items-center justify-center">
       <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
     </div>
   );
 
   if (!teacher) return (
-    <div className="min-h-screen pt-20 flex items-center justify-center">
+    <div className="min-h-screen pt-24 sm:pt-28 flex items-center justify-center">
       <p className="text-surface-500">Teacher not found</p>
     </div>
   );
@@ -74,8 +74,8 @@ const TutorProfile = () => {
   const tUser = teacher.userId || {};
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-20 pb-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Profile Header */}
         <div className="bg-white rounded-2xl shadow-sm border border-surface-100 overflow-hidden animate-fade-in-up">
           <div className="bg-gradient-to-r from-primary-500 to-accent-500 h-32 sm:h-40" />

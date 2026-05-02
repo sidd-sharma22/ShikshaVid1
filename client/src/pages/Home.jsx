@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { HiSearch, HiLocationMarker, HiAcademicCap, HiStar, HiMap, HiShieldCheck, HiCurrencyRupee, HiUserGroup } from 'react-icons/hi';
+import {
+  HiSearch,
+  HiLocationMarker,
+  HiMap,
+  HiShieldCheck,
+  HiCurrencyRupee,
+  HiStar,
+  HiUserGroup,
+  HiLightBulb
+} from 'react-icons/hi';
 
 const Home = () => {
   const [searchSubject, setSearchSubject] = useState('');
@@ -11,155 +20,201 @@ const Home = () => {
     navigate(`/tutors${searchSubject ? `?subject=${searchSubject}` : ''}`);
   };
 
-  const features = [
-    { icon: HiSearch, title: 'Smart Matching', desc: 'AI-powered best-fit scoring based on experience, ratings, distance & fees', color: 'from-primary-500 to-primary-600' },
-    { icon: HiMap, title: 'Live Map View', desc: 'Find tutors near you on an interactive map with real-time distance', color: 'from-emerald-500 to-teal-600' },
-    { icon: HiShieldCheck, title: 'Verified Teachers', desc: 'Every teacher is verified for credentials and teaching quality', color: 'from-amber-500 to-orange-600' },
-    { icon: HiCurrencyRupee, title: 'Transparent Fees', desc: 'Compare fees easily. No hidden charges. Value for money guaranteed', color: 'from-pink-500 to-rose-600' },
+  const popularSubjects = ['Mathematics', 'Physics', 'Chemistry', 'English', 'Biology'];
+
+  const highlights = [
+    { label: 'Verified Tutors', value: '500+', icon: HiShieldCheck },
+    { label: 'Happy Students', value: '10K+', icon: HiUserGroup },
+    { label: 'Avg Rating', value: '4.8', icon: HiStar },
   ];
 
-  const popularSubjects = ['Mathematics', 'Physics', 'Chemistry', 'English', 'Biology', 'Computer Science', 'Hindi', 'Social Studies'];
+  const features = [
+    {
+      icon: HiLightBulb,
+      title: 'Smart Matching',
+      desc: 'AI-powered recommendations based on subject fit, distance, rating, experience and fees.',
+      color: 'from-primary-500 to-primary-600'
+    },
+    {
+      icon: HiMap,
+      title: 'Live Map View',
+      desc: 'Visualize tutors around your area and compare nearby options instantly.',
+      color: 'from-emerald-500 to-teal-600'
+    },
+    {
+      icon: HiShieldCheck,
+      title: 'Verified Teachers',
+      desc: 'Profiles are screened for quality and credentials before being promoted.',
+      color: 'from-amber-500 to-orange-600'
+    },
+    {
+      icon: HiCurrencyRupee,
+      title: 'Transparent Fees',
+      desc: 'Know monthly pricing up front and choose options that match your budget.',
+      color: 'from-pink-500 to-rose-600'
+    }
+  ];
 
-  const stats = [
-    { value: '500+', label: 'Verified Tutors' },
-    { value: '10K+', label: 'Happy Students' },
-    { value: '50+', label: 'Cities' },
-    { value: '4.8', label: 'Avg Rating' },
+  const steps = [
+    {
+      title: 'Share Your Area',
+      desc: 'Use location access or manually set your neighborhood to start smart discovery.'
+    },
+    {
+      title: 'Compare Best-Fit Tutors',
+      desc: 'Apply filters for subject, distance, rating and fees to shortlist your top picks.'
+    },
+    {
+      title: 'Book a Demo Session',
+      desc: 'Request a demo class, connect directly, and confidently choose your tutor.'
+    }
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent-200/20 rounded-full blur-3xl" />
+    <div className="min-h-screen bg-surface-50">
+      <section className="relative overflow-hidden bg-surface-900 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 pulse-dot" />
+                Trusted by 10,000+ students across India
+              </span>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6 animate-fade-in-up">
-              <span className="w-2 h-2 rounded-full bg-primary-500 pulse-dot" />
-              Trusted by 10,000+ students across India
-            </div>
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                Find Your
+                <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
+                  Best-Fit Tutor
+                </span>
+                Nearby
+              </h1>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-surface-900 leading-tight animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Find the{' '}
-              <span className="gradient-text">Best-Fit Tutor</span>
-              <br />Near You
-            </h1>
+              <p className="mt-5 text-base sm:text-lg text-white/80 max-w-xl">
+                Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
+              </p>
 
-            <p className="mt-6 text-base sm:text-lg text-surface-500 max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Discover top-rated offline tutors in your city. Smart recommendations based on your needs — not just listings.
-            </p>
-
-            {/* Search Bar */}
-            <form onSubmit={handleSearch} className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-2xl mx-auto p-2 bg-white rounded-2xl shadow-xl shadow-primary-500/10 border border-surface-100">
-                <div className="flex items-center gap-2 flex-1 px-3 sm:px-4">
-                  <HiSearch className="text-surface-400 text-xl" />
-                  <input
-                    type="text"
-                    placeholder="Search by subject (e.g., Mathematics)"
-                    value={searchSubject}
-                    onChange={(e) => setSearchSubject(e.target.value)}
-                    className="flex-1 py-3 text-sm outline-none bg-transparent text-surface-800 placeholder:text-surface-400 min-w-0"
-                  />
+              <form onSubmit={handleSearch} className="mt-8 bg-white rounded-2xl p-2 shadow-2xl shadow-black/25 border border-white/20">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <div className="flex items-center flex-1 px-3 sm:px-4">
+                    <HiSearch className="text-surface-400 text-xl" />
+                    <input
+                      type="text"
+                      placeholder="Search by subject (e.g., Mathematics)"
+                      value={searchSubject}
+                      onChange={(e) => setSearchSubject(e.target.value)}
+                      className="w-full py-3 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold hover:from-primary-600 hover:to-primary-700 transition-all flex items-center justify-center gap-2"
+                  >
+                    <HiLocationMarker />
+                    Find Tutors
+                  </button>
                 </div>
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <HiLocationMarker />
-                  Find Tutors
-                </button>
-              </div>
-            </form>
+              </form>
 
-            {/* Popular subjects */}
-            <div className="mt-6 flex flex-wrap justify-center gap-2 animate-fade-in-up px-2" style={{ animationDelay: '0.4s' }}>
-              <span className="text-xs text-surface-400">Popular:</span>
-              {popularSubjects.slice(0, 5).map(sub => (
-                <Link
-                  key={sub}
-                  to={`/tutors?subject=${sub}`}
-                  className="px-3 py-1 bg-white rounded-full text-xs font-medium text-surface-600 border border-surface-200 hover:border-primary-300 hover:text-primary-600 hover:bg-primary-50 transition-all"
-                >
-                  {sub}
-                </Link>
-              ))}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {popularSubjects.map((subject) => (
+                  <Link
+                    key={subject}
+                    to={`/tutors?subject=${subject}`}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/10 border border-white/20 text-white/90 hover:bg-white/20 transition-colors"
+                  >
+                    {subject}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center p-4 bg-white/70 rounded-2xl border border-white/60 backdrop-blur animate-fade-in-up shadow-sm" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
-                <p className="text-2xl sm:text-3xl font-black gradient-text">{stat.value}</p>
-                <p className="text-xs text-surface-500 mt-1">{stat.label}</p>
+            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-7 backdrop-blur">
+              <h2 className="text-xl font-bold">Why learners choose ShikshaVid</h2>
+              <p className="text-sm text-white/70 mt-1">Built for hyperlocal, practical tutor discovery.</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+                {highlights.map((item) => (
+                  <div key={item.label} className="rounded-2xl bg-white/10 border border-white/10 p-4">
+                    <item.icon className="text-white text-xl mb-2" />
+                    <p className="text-2xl font-bold">{item.value}</p>
+                    <p className="text-xs text-white/70 mt-1">{item.label}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              <div className="mt-5 rounded-2xl bg-emerald-400/10 border border-emerald-300/25 p-4">
+                <p className="text-sm text-emerald-100 font-medium">
+                  Live map support, verified profiles, and quick demo booking — all in one clean workflow.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 sm:py-24 bg-white border-y border-surface-100">
+      <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900">Why Choose <span className="gradient-text">ShikshaVid</span>?</h2>
-            <p className="mt-3 text-surface-500">More than a directory — we find your perfect teacher match</p>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900">
+              Why Choose <span className="gradient-text">ShikshaVid</span>?
+            </h2>
+            <p className="mt-3 text-surface-500">A complete platform for discovery, trust and conversion.</p>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((f, i) => (
-              <div key={i} className="group p-6 rounded-2xl bg-white border border-surface-200 shadow-sm card-hover h-full">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                  <f.icon className="text-white text-xl" />
+            {features.map((feature) => (
+              <div key={feature.title} className="h-full rounded-2xl bg-white border border-surface-200 shadow-sm p-6 card-hover">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} text-white flex items-center justify-center shadow-lg`}>
+                  <feature.icon className="text-xl" />
                 </div>
-                <h3 className="text-lg font-bold text-surface-800">{f.title}</h3>
-                <p className="mt-2 text-sm text-surface-500 leading-relaxed">{f.desc}</p>
+                <h3 className="mt-4 text-lg font-bold text-surface-900">{feature.title}</h3>
+                <p className="mt-2 text-sm text-surface-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 sm:py-24 bg-gradient-to-br from-surface-900 via-surface-800 to-surface-900 text-white">
+      <section className="py-16 sm:py-20 bg-white border-y border-surface-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">How It Works</h2>
-            <p className="mt-3 text-surface-200/60">Three simple steps to find your ideal tutor</p>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900">How It Works</h2>
+            <p className="mt-3 text-surface-500">Three simple steps to find the right tutor.</p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { step: '01', title: 'Share Your Location', desc: 'Allow GPS or enter your area. We find tutors within your preferred distance.' },
-              { step: '02', title: 'Browse Best-Fit Tutors', desc: 'See tutors ranked by our smart scoring algorithm. Filter by subject, fees, rating.' },
-              { step: '03', title: 'Book a Demo Class', desc: 'Select a time slot, book a free demo class, and start learning!' },
-            ].map((item, i) => (
-              <div key={i} className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur h-full min-h-[220px]">
-                <span className="text-5xl font-black text-white/10 absolute top-4 right-4">{item.step}</span>
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center mb-4">
-                  <span className="text-white font-bold text-sm">{item.step}</span>
+            {steps.map((step, idx) => (
+              <div key={step.title} className="h-full rounded-2xl bg-surface-50 border border-surface-200 p-6">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 text-white font-bold text-sm flex items-center justify-center">
+                  {`0${idx + 1}`}
                 </div>
-                <h3 className="text-lg font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-white/60 leading-relaxed">{item.desc}</p>
+                <h3 className="mt-4 text-xl font-bold text-surface-900">{step.title}</h3>
+                <p className="mt-2 text-sm text-surface-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 sm:py-24 bg-surface-50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-6 sm:px-10 py-12 sm:py-14 shadow-2xl shadow-primary-500/25">
+          <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-6 sm:px-10 py-12 shadow-2xl shadow-primary-500/25">
             <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
-            <p className="mt-4 text-base sm:text-lg text-white/85">Join thousands of students discovering quality education in their neighborhood</p>
+            <p className="mt-4 text-base sm:text-lg text-white/85">
+              Start with smart discovery and book your first demo class in minutes.
+            </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tutors" className="px-8 py-3.5 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 shadow-xl transition-all">
+              <Link
+                to="/tutors"
+                className="px-8 py-3.5 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 shadow-xl transition-all"
+              >
                 Find Tutors Now
               </Link>
-              <Link to="/signup" className="px-8 py-3.5 bg-white/10 text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all">
+              <Link
+                to="/signup"
+                className="px-8 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 transition-all"
+              >
                 Register as Teacher
               </Link>
             </div>

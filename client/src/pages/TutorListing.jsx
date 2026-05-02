@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { teacherAPI } from '../utils/api';
 import TutorCard from '../components/TutorCard';
 import { HiSearch, HiAdjustments } from 'react-icons/hi';
-import toast from 'react-hot-toast';
 
 const TutorListing = () => {
   const [searchParams] = useSearchParams();
@@ -49,8 +48,8 @@ const TutorListing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-surface-900">Find <span className="gradient-text">Best-Fit Tutors</span></h1>
           <p className="text-surface-500 mt-1">Smart recommendations based on your needs</p>

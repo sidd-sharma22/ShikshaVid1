@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isAdminArea = location.pathname.startsWith('/admin');
 
   const handleLogout = () => {
     logout();
@@ -24,6 +25,8 @@ const Navbar = () => {
     { path: '/contact', label: 'Contact' },
   ];
 
+  const desktopLinks = isAdminArea ? [{ path: '/', label: 'Back to Home' }] : navLinks;
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,15 +41,15 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navLinks.map(link => (
+            {desktopLinks.map(link => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={`px-3 xl:px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                  isActive(link.path)
-                    ? 'bg-primary-50 text-primary-700'
-                    : 'text-surface-700 hover:bg-surface-100 hover:text-primary-600'
-                }`}
+                   isActive(link.path)
+                     ? 'bg-primary-50 text-primary-700'
+                     : 'text-surface-700 hover:bg-surface-100 hover:text-primary-600'
+                 }`}
               >
                 {link.label}
               </Link>
@@ -57,11 +60,11 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-3">
             {user ? (
               <div className="flex items-center gap-3">
-                {user.role === 'admin' && (
-                  <Link to="/admin" className="text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors">
-                    Admin Panel
-                  </Link>
-                )}
+                 {user.role === 'admin' && !isAdminArea && (
+                   <Link to="/admin" className="text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors">
+                     Admin Panel
+                   </Link>
+                 )}
                 {user.role === 'student' && (
                   <Link to="/my-bookings" className="text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors">
                     My Bookings
@@ -110,7 +113,7 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="lg:hidden border-t border-surface-200 bg-white/95 backdrop-blur-xl animate-fade-in-up">
           <div className="px-4 py-3 space-y-1">
-            {navLinks.map(link => (
+             {(isAdminArea ? [{ path: '/', label: 'Back to Home' }] : navLinks).map(link => (
               <Link
                 key={link.path}
                 to={link.path}

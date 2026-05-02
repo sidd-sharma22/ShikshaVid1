@@ -81,7 +81,7 @@ const TeacherDashboard = () => {
     } catch { toast.error('Failed to update'); }
   };
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center pt-20"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
+  if (loading) return <div className="min-h-screen flex items-center justify-center pt-24 sm:pt-28"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
 
   const stats = [
     { icon: HiStar, label: 'Rating', value: profile?.rating?.toFixed(1) || '0', color: 'text-yellow-500' },
@@ -91,8 +91,8 @@ const TeacherDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-20 pb-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold text-surface-900">Teacher Dashboard</h1>

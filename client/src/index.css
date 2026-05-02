@@ -2,6 +2,10 @@
 
 @import "tailwindcss";
 
+:root {
+  --app-nav-height: 72px;
+}
+
 @theme {
   --color-primary-50: #eef2ff;
   --color-primary-100: #e0e7ff;
@@ -44,7 +48,10 @@ body {
   color: var(--color-surface-800);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
+  overflow-x: hidden;
 }
+
+#root { min-height: 100vh; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }

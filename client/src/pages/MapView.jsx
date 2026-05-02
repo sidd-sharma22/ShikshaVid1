@@ -4,7 +4,7 @@ import { teacherAPI } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { HiStar, HiLocationMarker } from 'react-icons/hi';
 
-const mapContainerStyle = { width: '100%', height: 'calc(100vh - 64px)' };
+const mapContainerStyle = { width: '100%', height: 'calc(100vh - 72px)' };
 const defaultCenter = { lat: 26.9124, lng: 75.7873 }; // Jaipur
 
 const MapView = () => {
@@ -57,8 +57,8 @@ const MapView = () => {
   // Fallback when no Google Maps API key
   if (!apiKey) {
     return (
-      <div className="min-h-screen bg-surface-50 pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+      <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-2xl font-bold text-surface-900 mb-4">📍 Map View</h1>
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-surface-100">
             <div className="text-center py-12">
@@ -87,8 +87,8 @@ const MapView = () => {
 
   if (loadError) {
     return (
-      <div className="min-h-screen bg-surface-50 pt-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
+      <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-surface-100">
             <h2 className="text-lg font-bold text-danger-500">Unable to load Google Map</h2>
             <p className="text-sm text-surface-600 mt-2">
@@ -102,10 +102,10 @@ const MapView = () => {
       </div>
     );
   }
-  if (!isLoaded) return <div className="min-h-screen flex items-center justify-center pt-20"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
+  if (!isLoaded) return <div className="min-h-screen flex items-center justify-center pt-24 sm:pt-28"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
 
   return (
-    <div className="pt-16">
+    <div className="pt-[72px]">
       <GoogleMap mapContainerStyle={mapContainerStyle} zoom={13} center={center}
         options={{ styles: [{ featureType: 'poi', stylers: [{ visibility: 'off' }] }], disableDefaultUI: false, zoomControl: true }}>
         {/* User location marker */}

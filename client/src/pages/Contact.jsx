@@ -16,14 +16,14 @@ const Contact = () => {
       toast.success('Message sent successfully!');
       setSent(true);
       setForm({ name: '', email: '', message: '' });
-    } catch (err) {
+    } catch {
       toast.error('Failed to send message');
     } finally { setLoading(false); }
   };
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-20 pb-10">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-bold text-surface-900">Contact <span className="gradient-text">Us</span></h1>
           <p className="text-surface-500 mt-2">Have a question? We'd love to hear from you.</p>
@@ -71,15 +71,26 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="text-sm font-medium text-surface-700 block mb-1.5">Name</label>
-                  <div className="relative"><HiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" /><input type="text" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm" placeholder="Your name" /></div>
+                  <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                    <HiUser className="text-surface-400 text-lg shrink-0" />
+                    <input type="text" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400" placeholder="Your name" />
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-surface-700 block mb-1.5">Email</label>
-                  <div className="relative"><HiMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" /><input type="email" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm" placeholder="you@example.com" /></div>
+                  <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                    <HiMail className="text-surface-400 text-lg shrink-0" />
+                    <input type="email" required value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400" placeholder="you@example.com" />
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-surface-700 block mb-1.5">Message</label>
-                  <div className="relative"><HiChat className="absolute left-3.5 top-4 text-surface-400" /><textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm resize-none" rows={5} placeholder="Your message..." /></div>
+                  <div className="rounded-xl border border-surface-200 bg-white px-3 pt-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                    <div className="flex items-start gap-2">
+                      <HiChat className="text-surface-400 text-lg mt-1 shrink-0" />
+                      <textarea required value={form.message} onChange={e => setForm({...form, message: e.target.value})} className="w-full pr-2 pb-3 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400 resize-none" rows={5} placeholder="Your message..." />
+                    </div>
+                  </div>
                 </div>
                 <button type="submit" disabled={loading} className="w-full py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 transition-all disabled:opacity-50">
                   {loading ? 'Sending...' : 'Send Message'}

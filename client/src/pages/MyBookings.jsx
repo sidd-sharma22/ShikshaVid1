@@ -42,15 +42,15 @@ const MyBookings = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center pt-20">
+      <div className="min-h-screen flex items-center justify-center pt-24 sm:pt-28">
         <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-20 pb-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
+    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-surface-900">
             My <span className="gradient-text">Bookings</span>

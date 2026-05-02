@@ -1,0 +1,25 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#312E81"/>
+      <stop offset="0.5" stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#DB2777"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="800" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="28" fill="url(#card)" stroke="white" stroke-opacity="0.35"/>
+  <rect x="130" y="160" width="88" height="88" rx="22" fill="white" fill-opacity="0.2"/>
+  <path d="M172 182L200 195L172 208L144 195L172 182Z" fill="white"/>
+  <path d="M152 202V218C152 225 162 230 172 230C182 230 192 225 192 218V202L172 212L152 202Z" fill="white"/>
+  <text x="250" y="220" fill="white" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="800">ShikshaVid</text>
+  <text x="130" y="320" fill="white" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700">Find Best-Fit Tutors Near You</text>
+  <text x="130" y="378" fill="white" fill-opacity="0.9" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="500">
+    Discover verified tutors with smart matching by distance, rating, fees and experience.
+  </text>
+  <rect x="130" y="430" width="360" height="72" rx="16" fill="white"/>
+  <text x="166" y="478" fill="#4338CA" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">shiksha-vid.vercel.app</text>
+</svg>
