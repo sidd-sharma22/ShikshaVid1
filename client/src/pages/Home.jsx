@@ -103,15 +103,15 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-20 sm:py-24 bg-white border-y border-surface-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-surface-900">Why Choose <span className="gradient-text">ShikshaVid</span>?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900">Why Choose <span className="gradient-text">ShikshaVid</span>?</h2>
             <p className="mt-3 text-surface-500">More than a directory — we find your perfect teacher match</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="group p-6 rounded-2xl bg-surface-50 border border-surface-100 card-hover h-full">
+              <div key={i} className="group p-6 rounded-2xl bg-white border border-surface-200 shadow-sm card-hover h-full">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
                   <f.icon className="text-white text-xl" />
                 </div>
@@ -124,19 +124,19 @@ const Home = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-surface-900 to-surface-800 text-white">
+      <section className="py-20 sm:py-24 bg-gradient-to-br from-surface-900 via-surface-800 to-surface-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold">How It Works</h2>
             <p className="mt-3 text-surface-200/60">Three simple steps to find your ideal tutor</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { step: '01', title: 'Share Your Location', desc: 'Allow GPS or enter your area. We find tutors within your preferred distance.' },
               { step: '02', title: 'Browse Best-Fit Tutors', desc: 'See tutors ranked by our smart scoring algorithm. Filter by subject, fees, rating.' },
               { step: '03', title: 'Book a Demo Class', desc: 'Select a time slot, book a free demo class, and start learning!' },
             ].map((item, i) => (
-              <div key={i} className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
+              <div key={i} className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur h-full min-h-[220px]">
                 <span className="text-5xl font-black text-white/10 absolute top-4 right-4">{item.step}</span>
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-sm">{item.step}</span>
@@ -150,17 +150,19 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 bg-gradient-to-r from-primary-500 to-accent-500 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
-          <p className="mt-4 text-lg text-white/80">Join thousands of students discovering quality education in their neighborhood</p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/tutors" className="px-8 py-3.5 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 shadow-xl transition-all">
-              Find Tutors Now
-            </Link>
-            <Link to="/signup" className="px-8 py-3.5 bg-white/10 text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all">
-              Register as Teacher
-            </Link>
+      <section className="py-20 sm:py-24 bg-surface-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-6 sm:px-10 py-12 sm:py-14 shadow-2xl shadow-primary-500/25">
+            <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
+            <p className="mt-4 text-base sm:text-lg text-white/85">Join thousands of students discovering quality education in their neighborhood</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/tutors" className="px-8 py-3.5 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 shadow-xl transition-all">
+                Find Tutors Now
+              </Link>
+              <Link to="/signup" className="px-8 py-3.5 bg-white/10 text-white font-semibold rounded-xl border border-white/30 hover:bg-white/20 transition-all">
+                Register as Teacher
+              </Link>
+            </div>
           </div>
         </div>
       </section>
