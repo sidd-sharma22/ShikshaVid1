@@ -18,7 +18,12 @@ connectDB();
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || 'https://shiksha-vid.vercel.app', credentials: true }));
+// CORS - handle with and without trailing slash
+const allowedOrigin = (process.env.CLIENT_URL || 'https://shiksha-vid.vercel.app').replace(/\/+$/, '');
+app.use(cors({
+  origin: [allowedOrigin, `${allowedOrigin}/`],
+  credentials: true
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -34,13 +39,15 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'ShikshaVid API is running' });
 });
 
-app.use((err, req, res, next) => {
-  console.error('Server Error:', err);
-  res.status(500).json({ success: false, message: 'Internal server error' });
+// 404 catch-all (must be before error handler)
+app.use((req, res, _next) => {
+  res.status(404).json({ success: false, message: 'Route not found' });
 });
 
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: 'Route not found' });
+// Global error handler (Express 5 compatible — must have 4 args)
+app.use((err, req, res, _next) => {
+  console.error('Server Error:', err);
+  res.status(err.status || 500).json({ success: false, message: err.message || 'Internal server error' });
 });
 
 const PORT = process.env.PORT || 5000;
