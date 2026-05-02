@@ -25,9 +25,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-[72px] gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/40 transition-shadow">
@@ -37,12 +37,12 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map(link => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-3 xl:px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                   isActive(link.path)
                     ? 'bg-primary-50 text-primary-700'
                     : 'text-surface-700 hover:bg-surface-100 hover:text-primary-600'
@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {user ? (
               <div className="flex items-center gap-3">
                 {user.role === 'admin' && (
@@ -72,9 +72,9 @@ const Navbar = () => {
                     Dashboard
                   </Link>
                 )}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 max-w-[180px]">
                   <HiUser className="text-primary-600" />
-                  <span className="text-sm font-medium text-primary-700">{user.name}</span>
+                  <span className="text-sm font-medium text-primary-700 truncate">{user.name}</span>
                 </div>
                 <button
                   onClick={handleLogout}
@@ -99,7 +99,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-surface-600 hover:bg-surface-100"
+            className="lg:hidden p-2 rounded-lg text-surface-600 hover:bg-surface-100"
           >
             {mobileOpen ? <HiX className="text-xl" /> : <HiMenu className="text-xl" />}
           </button>
@@ -108,7 +108,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden glass border-t border-white/20 animate-fade-in-up">
+        <div className="lg:hidden border-t border-surface-200 bg-white/95 backdrop-blur-xl animate-fade-in-up">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map(link => (
               <Link

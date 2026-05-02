@@ -26,17 +26,17 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-accent-50 px-4 pt-20 pb-10">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-accent-50 px-4 pt-24 sm:pt-28 pb-10">
       <div className="w-full max-w-md animate-fade-in-up">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-xl shadow-primary-500/30 mb-4">
             <HiAcademicCap className="text-white text-3xl" />
           </div>
-          <h1 className="text-2xl font-bold text-surface-900">Create Account</h1>
+          <h1 className="text-3xl font-bold text-surface-900">Create Account</h1>
           <p className="text-surface-500 mt-1">Join ShikshaVid today</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl shadow-surface-200/50 p-8 border border-surface-100">
+        <div className="bg-white rounded-2xl shadow-xl shadow-surface-200/60 p-6 sm:p-8 border border-surface-100">
           {/* Role Toggle */}
           <div className="flex bg-surface-100 rounded-xl p-1 mb-6">
             {['student', 'teacher'].map(role => (
@@ -58,13 +58,13 @@ const Signup = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-surface-700 mb-1.5">Full Name</label>
-              <div className="relative">
-                <HiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+              <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                <HiUser className="text-surface-400 text-lg shrink-0" />
                 <input
                   type="text" required
                   value={form.name}
                   onChange={e => setForm({ ...form, name: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm transition-all"
+                  className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
                   placeholder="Your full name"
                 />
               </div>
@@ -72,13 +72,13 @@ const Signup = () => {
 
             <div>
               <label className="block text-sm font-medium text-surface-700 mb-1.5">Email</label>
-              <div className="relative">
-                <HiMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+              <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                <HiMail className="text-surface-400 text-lg shrink-0" />
                 <input
                   type="email" required
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm transition-all"
+                  className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
                   placeholder="you@example.com"
                 />
               </div>
@@ -86,13 +86,13 @@ const Signup = () => {
 
             <div>
               <label className="block text-sm font-medium text-surface-700 mb-1.5">Phone</label>
-              <div className="relative">
-                <HiPhone className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+              <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                <HiPhone className="text-surface-400 text-lg shrink-0" />
                 <input
                   type="tel"
                   value={form.phone}
                   onChange={e => setForm({ ...form, phone: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm transition-all"
+                  className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
                   placeholder="+91 98765 43210"
                 />
               </div>
@@ -100,13 +100,13 @@ const Signup = () => {
 
             <div>
               <label className="block text-sm font-medium text-surface-700 mb-1.5">Password</label>
-              <div className="relative">
-                <HiLockClosed className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+              <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+                <HiLockClosed className="text-surface-400 text-lg shrink-0" />
                 <input
                   type="password" required minLength={6}
                   value={form.password}
                   onChange={e => setForm({ ...form, password: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm transition-all"
+                  className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
                   placeholder="Min 6 characters"
                 />
               </div>
@@ -115,7 +115,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 transition-all disabled:opacity-50"
+              className="w-full py-3.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 transition-all disabled:opacity-50"
             >
               {loading ? 'Creating account...' : 'Create Account'}
             </button>

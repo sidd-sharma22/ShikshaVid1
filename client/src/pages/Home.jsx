@@ -30,12 +30,12 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
+      <section className="relative pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50" />
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent-200/20 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6 animate-fade-in-up">
               <span className="w-2 h-2 rounded-full bg-primary-500 pulse-dot" />
@@ -48,26 +48,26 @@ const Home = () => {
               <br />Near You
             </h1>
 
-            <p className="mt-6 text-lg text-surface-500 max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <p className="mt-6 text-base sm:text-lg text-surface-500 max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Discover top-rated offline tutors in your city. Smart recommendations based on your needs — not just listings.
             </p>
 
             {/* Search Bar */}
             <form onSubmit={handleSearch} className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="flex items-center gap-2 max-w-xl mx-auto p-2 bg-white rounded-2xl shadow-xl shadow-primary-500/10 border border-surface-100">
-                <div className="flex items-center gap-2 flex-1 px-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-2xl mx-auto p-2 bg-white rounded-2xl shadow-xl shadow-primary-500/10 border border-surface-100">
+                <div className="flex items-center gap-2 flex-1 px-3 sm:px-4">
                   <HiSearch className="text-surface-400 text-xl" />
                   <input
                     type="text"
                     placeholder="Search by subject (e.g., Mathematics)"
                     value={searchSubject}
                     onChange={(e) => setSearchSubject(e.target.value)}
-                    className="flex-1 py-3 text-sm outline-none bg-transparent text-surface-800 placeholder:text-surface-400"
+                    className="flex-1 py-3 text-sm outline-none bg-transparent text-surface-800 placeholder:text-surface-400 min-w-0"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <HiLocationMarker />
                   Find Tutors
@@ -76,7 +76,7 @@ const Home = () => {
             </form>
 
             {/* Popular subjects */}
-            <div className="mt-6 flex flex-wrap justify-center gap-2 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <div className="mt-6 flex flex-wrap justify-center gap-2 animate-fade-in-up px-2" style={{ animationDelay: '0.4s' }}>
               <span className="text-xs text-surface-400">Popular:</span>
               {popularSubjects.slice(0, 5).map(sub => (
                 <Link
@@ -91,9 +91,9 @@ const Home = () => {
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center p-4 bg-white/60 rounded-2xl border border-white/50 backdrop-blur animate-fade-in-up" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
+              <div key={i} className="text-center p-4 bg-white/70 rounded-2xl border border-white/60 backdrop-blur animate-fade-in-up shadow-sm" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
                 <p className="text-2xl sm:text-3xl font-black gradient-text">{stat.value}</p>
                 <p className="text-xs text-surface-500 mt-1">{stat.label}</p>
               </div>
@@ -103,15 +103,15 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-surface-900">Why Choose <span className="gradient-text">ShikshaVid</span>?</h2>
             <p className="mt-3 text-surface-500">More than a directory — we find your perfect teacher match</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="group p-6 rounded-2xl bg-surface-50 border border-surface-100 card-hover">
+              <div key={i} className="group p-6 rounded-2xl bg-surface-50 border border-surface-100 card-hover h-full">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
                   <f.icon className="text-white text-xl" />
                 </div>
@@ -124,8 +124,8 @@ const Home = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-gradient-to-br from-surface-900 to-surface-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-surface-900 to-surface-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold">How It Works</h2>
             <p className="mt-3 text-surface-200/60">Three simple steps to find your ideal tutor</p>
@@ -150,7 +150,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-500 to-accent-500 text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-r from-primary-500 to-accent-500 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
           <p className="mt-4 text-lg text-white/80">Join thousands of students discovering quality education in their neighborhood</p>
