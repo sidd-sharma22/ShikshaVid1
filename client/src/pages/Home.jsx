@@ -74,30 +74,31 @@ const Home = () => {
     <div className="min-h-screen bg-surface-50">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative ds-container pt-16 sm:pt-20 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 pulse-dot" />
+        <div className="relative ds-container py-[var(--space-10)] sm:py-[calc(var(--space-10)+var(--space-6))]">
+          <div className="grid grid-cols-1 items-start gap-[var(--space-10)] lg:grid-cols-2 lg:items-center">
+            <div className="space-y-[var(--space-6)]">
+              <span className="inline-flex items-center gap-[var(--space-2)] rounded-full border border-white/20 bg-white/10 px-[var(--space-4)] py-[var(--space-2)] text-sm font-medium">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 pulse-dot" />
                 Trusted by 10,000+ students across India
               </span>
 
-              <h1 className="mt-6 ds-heading-xl !text-white">
-                Find Your
-                <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
-                  Best-Fit Tutor
-                </span>
-                Nearby
-              </h1>
+              <div className="space-y-[var(--space-4)]">
+                <h1 className="ds-heading-xl !text-white">
+                  Find Your
+                  <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
+                    Best-Fit Tutor
+                  </span>
+                  Nearby
+                </h1>
+                <p className="max-w-xl text-sm text-white/80 sm:text-base">
+                  Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
+                </p>
+              </div>
 
-              <p className="mt-5 text-base sm:text-lg text-white/80 max-w-xl">
-                Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
-              </p>
-
-              <form onSubmit={handleSearch} className="ds-card mt-8 p-2 shadow-2xl shadow-black/25 border-white/20">
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <div className="ds-input-shell flex-1 border-0 shadow-none px-3 sm:px-4">
-                    <HiSearch className="text-surface-400 text-xl shrink-0" />
+              <form onSubmit={handleSearch} className="ds-card p-[var(--space-2)]">
+                <div className="grid grid-cols-1 items-center gap-[var(--space-2)] sm:grid-cols-[1fr_auto]">
+                  <div className="ds-input-shell w-full border-surface-200">
+                    <HiSearch className="shrink-0 text-xl text-surface-400" />
                     <input
                       type="text"
                       placeholder="Search by subject (e.g., Mathematics)"
@@ -108,7 +109,7 @@ const Home = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto ds-btn ds-btn-primary px-6 py-3"
+                    className="ds-btn ds-btn-primary w-full sm:w-auto"
                   >
                     <HiLocationMarker />
                     Find Tutors
@@ -116,12 +117,12 @@ const Home = () => {
                 </div>
               </form>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-[var(--space-2)]">
                 {popularSubjects.map((subject) => (
                   <Link
                     key={subject}
                     to={`/tutors?subject=${subject}`}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/10 border border-white/20 text-white/90 hover:bg-white/20 transition-colors"
+                    className="rounded-full border border-white/20 bg-white/10 px-[var(--space-3)] py-1.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/20"
                   >
                     {subject}
                   </Link>
@@ -129,22 +130,24 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-7 backdrop-blur">
-              <h2 className="text-xl font-bold">Why learners choose ShikshaVid</h2>
-              <p className="text-sm text-white/70 mt-1">Built for hyperlocal, practical tutor discovery.</p>
+            <div className="space-y-[var(--space-4)]">
+              <div className="ds-card p-6 sm:p-7">
+                <h2 className="ds-heading-md">Why learners choose ShikshaVid</h2>
+                <p className="ds-text-muted mt-1">Built for hyperlocal, practical tutor discovery.</p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
-                {highlights.map((item) => (
-                  <div key={item.label} className="rounded-2xl bg-white/10 border border-white/10 p-4">
-                    <item.icon className="text-white text-xl mb-2" />
-                    <p className="text-2xl font-bold">{item.value}</p>
-                    <p className="text-xs text-white/70 mt-1">{item.label}</p>
-                  </div>
-                ))}
+                <div className="mt-[var(--space-6)] grid grid-cols-1 gap-[var(--space-3)] sm:grid-cols-3">
+                  {highlights.map((item) => (
+                    <div key={item.label} className="ds-card bg-surface-50 p-4">
+                      <item.icon className="mb-[var(--space-2)] text-xl text-primary-600" />
+                      <p className="text-2xl font-bold text-surface-900">{item.value}</p>
+                      <p className="mt-1 text-xs text-surface-500">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="mt-5 rounded-2xl bg-emerald-400/10 border border-emerald-300/25 p-4">
-                <p className="text-sm text-emerald-100 font-medium">
+              <div className="ds-card border-emerald-100 bg-emerald-50/90 p-4">
+                <p className="text-sm font-medium text-emerald-800">
                   Live map support, verified profiles, and quick demo booking — all in one clean workflow.
                 </p>
               </div>
