@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { HiMail, HiLockClosed, HiEye, HiEyeOff, HiAcademicCap } from 'react-icons/hi';
+import Button from '../components/Button';
 import toast from 'react-hot-toast';
 
 const Login = () => {
@@ -69,19 +70,26 @@ const Login = () => {
                   className="ds-input-field pr-2"
                   placeholder="••••••••"
                 />
-                <button type="button" onClick={() => setShowPass(!showPass)} className="text-surface-400 hover:text-surface-600 p-1">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="small"
+                  onClick={() => setShowPass(!showPass)}
+                  className="shrink-0 !border-0 !bg-transparent !px-2 !py-1 !text-surface-400 hover:!bg-surface-100 hover:!text-surface-600"
+                >
                   {showPass ? <HiEyeOff /> : <HiEye />}
-                </button>
+                </Button>
               </div>
             </div>
 
-            <button
+            <Button
               type="submit"
+              variant="primary"
               disabled={loading}
-              className="w-full ds-btn ds-btn-primary"
+              className="w-full"
             >
               {loading ? 'Signing in...' : 'Sign In'}
-            </button>
+            </Button>
           </form>
 
           <div className="mt-6 text-center">
