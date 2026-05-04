@@ -328,3 +328,36 @@ body {
 .ds-input-field::placeholder {
   color: #94a3b8;
 }
+
+.ds-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 0.0625rem solid var(--color-border);
+  background: #fff;
+  color: var(--color-text-strong);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  padding: 0.875rem var(--space-3);
+  transition: all 180ms ease;
+}
+
+.ds-input:focus {
+  outline: none;
+  border-color: var(--color-primary-400);
+  box-shadow: 0 0 0 0.25rem rgba(129, 140, 248, 0.2);
+}
+
+.ds-input::placeholder {
+  color: #94a3b8;
+}
+
+.ds-input-error {
+  border-color: var(--color-danger-500);
+  box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.15);
+}
+
+.ds-input-error-text {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-danger-500);
+}

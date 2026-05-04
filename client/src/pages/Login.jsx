@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { HiMail, HiLockClosed, HiEye, HiEyeOff, HiAcademicCap } from 'react-icons/hi';
+import { HiEye, HiEyeOff, HiAcademicCap } from 'react-icons/hi';
 import Button from '../components/Button';
+import Input from '../components/Input';
 import toast from 'react-hot-toast';
 
 const Login = () => {
@@ -43,39 +44,33 @@ const Login = () => {
 
         <div className="ds-card p-6 sm:p-8 shadow-xl shadow-surface-200/60">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="ds-label">Email</label>
-              <div className="ds-input-shell">
-                <HiMail className="text-surface-400 text-lg shrink-0" />
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={e => setForm({ ...form, email: e.target.value })}
-                  className="ds-input-field"
-                  placeholder="you@example.com"
-                />
-              </div>
-            </div>
+            <Input
+              label="Email"
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={e => setForm({ ...form, email: e.target.value })}
+              placeholder="you@example.com"
+              required
+            />
 
-            <div>
-              <label className="ds-label">Password</label>
-              <div className="ds-input-shell">
-                <HiLockClosed className="text-surface-400 text-lg shrink-0" />
-                <input
-                  type={showPass ? 'text' : 'password'}
-                  required
-                  value={form.password}
-                  onChange={e => setForm({ ...form, password: e.target.value })}
-                  className="ds-input-field pr-2"
-                  placeholder="••••••••"
-                />
+            <div className="space-y-2">
+              <Input
+                label="Password"
+                type={showPass ? 'text' : 'password'}
+                name="password"
+                value={form.password}
+                onChange={e => setForm({ ...form, password: e.target.value })}
+                placeholder="••••••••"
+                required
+              />
+              <div className="flex justify-end">
                 <Button
                   type="button"
                   variant="outline"
                   size="small"
                   onClick={() => setShowPass(!showPass)}
-                  className="shrink-0 !border-0 !bg-transparent !px-2 !py-1 !text-surface-400 hover:!bg-surface-100 hover:!text-surface-600"
+                  className="!px-2 !py-1 !text-surface-500"
                 >
                   {showPass ? <HiEyeOff /> : <HiEye />}
                 </Button>
