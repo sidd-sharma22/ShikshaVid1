@@ -59,9 +59,11 @@ const AdminPanel = () => {
 
   return (
     <div className="ds-page">
-      <div className="ds-container py-[var(--space-6)]">
+      <div className="ds-container pt-[var(--space-8)] pb-[var(--space-10)]">
         <div className="space-y-[var(--space-8)]">
-          <h1 className="text-2xl font-bold text-surface-900">Admin <span className="gradient-text">Panel</span></h1>
+          <div className="space-y-[var(--space-2)]">
+            <h1 className="text-2xl font-bold text-surface-900">Admin <span className="gradient-text">Panel</span></h1>
+          </div>
 
           {/* Tabs */}
           <div className="sticky top-[calc(var(--app-nav-height)+var(--space-2))] z-20 border-b border-surface-200/90 bg-surface-50/90 py-[var(--space-2)] backdrop-blur-sm sm:top-[calc(var(--app-nav-height)+var(--space-3))]">
@@ -85,7 +87,7 @@ const AdminPanel = () => {
           {/* Dashboard Tab */}
           {activeTab === 'dashboard' && dashboard && (
             <div className="space-y-[var(--space-8)] animate-fade-in-up">
-              <div className="grid grid-cols-1 gap-[var(--space-5)] sm:grid-cols-2 lg:grid-cols-4">
+              <section className="grid grid-cols-1 gap-[var(--space-5)] sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { icon: HiUsers, label: 'Students', value: dashboard.users.totalStudents, color: 'text-primary-500', bg: 'bg-primary-50', tint: 'from-primary-50/40 to-white' },
                   { icon: HiUsers, label: 'Teachers', value: dashboard.users.totalTeachers, color: 'text-emerald-500', bg: 'bg-emerald-50', tint: 'from-emerald-50/40 to-white' },
@@ -106,7 +108,7 @@ const AdminPanel = () => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </section>
 
               {/* Top Teachers */}
               <section className="space-y-[var(--space-4)]">
@@ -134,26 +136,26 @@ const AdminPanel = () => {
                 <table className="w-full min-w-[68rem] text-base">
                   <thead className="border-y border-surface-200 bg-surface-50/70 text-surface-500">
                     <tr>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Name</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Subjects</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Exp</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Fees</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Rating</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Leads</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Status</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Actions</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Name</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Subjects</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Exp</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Fees</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Rating</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Leads</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Status</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {teachers.map(t => (
                       <tr key={t._id} className="border-b border-surface-200/80 hover:bg-surface-50/70">
-                        <td className="px-[var(--space-5)] py-[var(--space-4)] font-medium text-surface-800">{t.userId?.name}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)] text-surface-600">{t.subjects?.slice(0, 2).join(', ')}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{t.experience}y</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">₹{t.fees}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]"><span className="flex items-center gap-1"><HiStar className="text-base text-yellow-400" />{t.rating?.toFixed(1)}</span></td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{t.totalLeads}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">
+                        <td className="px-[var(--space-6)] py-[var(--space-5)] font-medium text-surface-800">{t.userId?.name}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)] text-surface-600">{t.subjects?.slice(0, 2).join(', ')}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{t.experience}y</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">₹{t.fees}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]"><span className="flex items-center gap-1"><HiStar className="text-base text-yellow-400" />{t.rating?.toFixed(1)}</span></td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{t.totalLeads}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">
                           <div className="flex flex-wrap gap-2">
                             {t.isApproved && <span className="rounded bg-green-100 px-2.5 py-1 text-xs font-medium text-green-700">Approved</span>}
                             {!t.isApproved && <span className="rounded bg-yellow-100 px-2.5 py-1 text-xs font-medium text-yellow-700">Pending</span>}
@@ -161,7 +163,7 @@ const AdminPanel = () => {
                             {t.isSuspended && <span className="rounded bg-red-100 px-2.5 py-1 text-xs font-medium text-red-700">Suspended</span>}
                           </div>
                         </td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">
                           <div className="flex items-center gap-2">
                             {!t.isApproved && <button onClick={() => handleTeacherAction(t._id, 'approve')} className="rounded-lg bg-green-100 p-2 text-base text-green-600 hover:bg-green-200" title="Approve"><HiCheck /></button>}
                             {!t.isVerified && t.isApproved && <button onClick={() => handleTeacherAction(t._id, 'verify')} className="rounded-lg bg-blue-100 p-2 text-base text-blue-600 hover:bg-blue-200" title="Verify"><HiBadgeCheck /></button>}
@@ -185,23 +187,23 @@ const AdminPanel = () => {
                 <table className="w-full min-w-[62rem] text-base">
                   <thead className="border-y border-surface-200 bg-surface-50/70 text-surface-500">
                     <tr>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Student</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Teacher</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Date</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Time</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Subject</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold">Status</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Student</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Teacher</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Date</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Time</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Subject</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold">Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     {bookings.map(b => (
                       <tr key={b._id} className="border-b border-surface-200/80 hover:bg-surface-50/70">
-                        <td className="px-[var(--space-5)] py-[var(--space-4)] font-medium">{b.studentName || b.studentId?.name}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{b.teacherId?.userId?.name}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{new Date(b.date).toLocaleDateString('en-IN')}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{b.time}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{b.subject}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]"><span className={`rounded-lg px-2.5 py-1 text-xs font-medium ${b.status === 'confirmed' ? 'bg-green-100 text-green-700' : b.status === 'cancelled' ? 'bg-red-100 text-red-700' : b.status === 'completed' ? 'bg-blue-100 text-blue-700' : 'bg-yellow-100 text-yellow-700'}`}>{b.status}</span></td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)] font-medium">{b.studentName || b.studentId?.name}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{b.teacherId?.userId?.name}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{new Date(b.date).toLocaleDateString('en-IN')}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{b.time}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{b.subject}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]"><span className={`rounded-lg px-2.5 py-1 text-xs font-medium ${b.status === 'confirmed' ? 'bg-green-100 text-green-700' : b.status === 'cancelled' ? 'bg-red-100 text-red-700' : b.status === 'completed' ? 'bg-blue-100 text-blue-700' : 'bg-yellow-100 text-yellow-700'}`}>{b.status}</span></td>
                       </tr>
                     ))}
                   </tbody>
@@ -249,19 +251,19 @@ const AdminPanel = () => {
                 <table className="w-full min-w-[54rem] text-base">
                   <thead className="border-y border-surface-200 bg-surface-50/70">
                     <tr>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold text-surface-500">Teacher</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold text-surface-500">Students</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold text-surface-500">Fees</th>
-                      <th className="px-[var(--space-5)] py-[var(--space-3)] text-left font-semibold text-surface-500">Commission</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold text-surface-500">Teacher</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold text-surface-500">Students</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold text-surface-500">Fees</th>
+                      <th className="px-[var(--space-6)] py-[var(--space-4)] text-left font-semibold text-surface-500">Commission</th>
                     </tr>
                   </thead>
                   <tbody>
                     {revenue.revenueData?.map((r, i) => (
                       <tr key={i} className="border-b border-surface-200/80">
-                        <td className="px-[var(--space-5)] py-[var(--space-4)] font-medium">{r.teacherName}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">{r.enrolledStudents}</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)]">₹{r.fees}/mo</td>
-                        <td className="px-[var(--space-5)] py-[var(--space-4)] font-semibold text-primary-600">₹{r.commission}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)] font-medium">{r.teacherName}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">{r.enrolledStudents}</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)]">₹{r.fees}/mo</td>
+                        <td className="px-[var(--space-6)] py-[var(--space-5)] font-semibold text-primary-600">₹{r.commission}</td>
                       </tr>
                     ))}
                   </tbody>
