@@ -71,10 +71,10 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-50">
+    <div className="min-h-screen bg-surface-50 pt-[var(--app-nav-height)]">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative ds-container pt-28 sm:pt-32 pb-20">
+        <div className="relative ds-container pt-16 sm:pt-20 pb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium">

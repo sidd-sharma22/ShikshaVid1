@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
       <div className="ds-container">
-        <div className="flex h-[var(--app-nav-height)] items-center justify-between gap-4">
+        <div className="flex h-[var(--app-nav-height)] items-center justify-between gap-[var(--space-4)] px-[var(--space-2)] sm:px-[var(--space-3)]">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600 text-white">
@@ -39,9 +39,9 @@ const Navbar = () => {
             <span className="text-lg font-semibold tracking-tight text-surface-900">ShikshaVid</span>
           </Link>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-[var(--space-6)] lg:flex">
             {/* Desktop Nav */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-[var(--space-4)]">
               {desktopLinks.map(link => (
                 <Link
                   key={link.path}
@@ -58,9 +58,9 @@ const Navbar = () => {
             </div>
 
             {/* Auth Buttons */}
-            <div className="flex items-center gap-3 border-l border-surface-200 pl-4">
+            <div className="flex items-center gap-[var(--space-4)] border-l border-surface-200 pl-[var(--space-4)]">
               {user ? (
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-[var(--space-4)]">
                   {user.role === 'admin' && !isAdminArea && (
                     <Link to="/admin" className="rounded-lg px-2 py-1 text-sm font-medium text-primary-700 hover:bg-primary-50">
                       Admin Panel
@@ -76,7 +76,7 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   )}
-                  <div className="flex max-w-44 items-center gap-2 rounded-full bg-primary-50 px-3 py-1.5">
+                  <div className="flex max-w-44 items-center gap-[var(--space-2)] rounded-full bg-primary-50 px-3 py-1.5">
                     <HiUser className="text-primary-600" />
                     <span className="truncate text-sm font-medium text-primary-700">{user.name}</span>
                   </div>
