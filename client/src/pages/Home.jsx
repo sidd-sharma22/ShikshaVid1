@@ -95,38 +95,43 @@ const Home = () => {
                 </p>
               </div>
 
-              <form onSubmit={handleSearch} className="ds-card p-[var(--space-2)]">
-                <div className="grid grid-cols-1 items-center gap-[var(--space-2)] sm:grid-cols-[1fr_auto]">
-                  <div className="ds-input-shell w-full border-surface-200">
-                    <HiSearch className="shrink-0 text-xl text-surface-400" />
-                    <input
-                      type="text"
-                      placeholder="Search by subject (e.g., Mathematics)"
-                      value={searchSubject}
-                      onChange={(e) => setSearchSubject(e.target.value)}
-                      className="ds-input-field"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="ds-btn ds-btn-primary w-full px-[var(--space-6)] py-[var(--space-4)] text-base shadow-xl shadow-primary-500/40 sm:w-auto"
-                  >
-                    <HiLocationMarker />
-                    Find Tutors
-                  </button>
+            <div className="space-y-[var(--space-4)] py-[var(--space-2)]">
+                <div className="ds-card mx-auto w-full max-w-[35rem] border-white/20 bg-white/95 p-[var(--space-4)] shadow-2xl shadow-black/25 lg:mx-0">
+                  <p className="mb-[var(--space-3)] text-sm font-semibold text-surface-700">Start your tutor search</p>
+                  <form onSubmit={handleSearch}>
+                    <div className="grid grid-cols-1 items-center gap-[var(--space-3)] md:grid-cols-[minmax(0,1fr)_auto]">
+                      <div className="ds-input-shell min-h-14 w-full border-surface-200 px-[var(--space-4)]">
+                        <HiSearch className="shrink-0 text-xl text-surface-400" />
+                        <input
+                          type="text"
+                          placeholder="Search by subject (e.g., Mathematics)"
+                          value={searchSubject}
+                          onChange={(e) => setSearchSubject(e.target.value)}
+                          className="ds-input-field !py-[var(--space-4)]"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="ds-btn ds-btn-primary h-14 w-full px-[var(--space-6)] text-base shadow-xl shadow-primary-500/40 md:w-auto"
+                      >
+                        <HiLocationMarker />
+                        Find Tutors
+                      </button>
+                    </div>
+                  </form>
                 </div>
-              </form>
 
-              <div className="flex flex-wrap gap-[var(--space-2)]">
-                {popularSubjects.map((subject) => (
-                  <Link
-                    key={subject}
-                    to={`/tutors?subject=${subject}`}
-                    className="rounded-full border border-white/20 bg-white/10 px-[var(--space-3)] py-1.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/20"
-                  >
-                    {subject}
-                  </Link>
-                ))}
+                <div className="flex flex-wrap gap-[var(--space-2)]">
+                  {popularSubjects.map((subject) => (
+                    <Link
+                      key={subject}
+                      to={`/tutors?subject=${subject}`}
+                      className="rounded-full border border-white/20 bg-white/10 px-[var(--space-3)] py-1.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/20"
+                    >
+                      {subject}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
