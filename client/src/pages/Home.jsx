@@ -74,23 +74,23 @@ const Home = () => {
     <div className="min-h-screen bg-surface-50">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative ds-container py-[var(--space-10)] sm:py-[calc(var(--space-10)+var(--space-6))]">
-          <div className="grid grid-cols-1 items-start gap-[var(--space-10)] lg:grid-cols-2 lg:items-center">
-            <div className="space-y-[var(--space-6)]">
+        <div className="relative ds-container py-[calc(var(--space-10)+var(--space-2))] sm:py-[calc(var(--space-10)+var(--space-8))]">
+          <div className="grid grid-cols-1 items-start gap-[calc(var(--space-10)+var(--space-4))] lg:grid-cols-2 lg:items-center">
+            <div className="space-y-[var(--space-8)]">
               <span className="inline-flex items-center gap-[var(--space-2)] rounded-full border border-white/20 bg-white/10 px-[var(--space-4)] py-[var(--space-2)] text-sm font-medium">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 pulse-dot" />
                 Trusted by 10,000+ students across India
               </span>
 
-              <div className="space-y-[var(--space-4)]">
-                <h1 className="ds-heading-xl !text-white">
+              <div className="space-y-[var(--space-5)]">
+                <h1 className="ds-heading-xl !text-[clamp(2.75rem,2rem+2.2vw,4.25rem)] !font-black !text-white">
                   Find Your
                   <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
                     Best-Fit Tutor
                   </span>
                   Nearby
                 </h1>
-                <p className="max-w-xl text-sm text-white/80 sm:text-base">
+                <p className="max-w-xl text-sm text-white/75 sm:text-base">
                   Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
                 </p>
               </div>
@@ -109,7 +109,7 @@ const Home = () => {
                   </div>
                   <button
                     type="submit"
-                    className="ds-btn ds-btn-primary w-full sm:w-auto"
+                    className="ds-btn ds-btn-primary w-full px-[var(--space-6)] py-[var(--space-4)] text-base shadow-xl shadow-primary-500/40 sm:w-auto"
                   >
                     <HiLocationMarker />
                     Find Tutors
