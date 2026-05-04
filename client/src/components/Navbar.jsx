@@ -30,79 +30,82 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
       <div className="ds-container">
-        <div className="flex items-center justify-between h-[4.5rem] gap-3">
+        <div className="flex h-[var(--app-nav-height)] items-center justify-between gap-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/40 transition-shadow">
-              <HiAcademicCap className="text-white text-lg" />
+          <Link to="/" className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600 text-white">
+              <HiAcademicCap className="text-base" />
             </div>
-            <span className="text-xl font-bold gradient-text">ShikshaVid</span>
+            <span className="text-lg font-semibold tracking-tight text-surface-900">ShikshaVid</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {desktopLinks.map(link => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-3 xl:px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                   isActive(link.path)
-                     ? 'bg-primary-50 text-primary-700'
-                     : 'text-surface-700 hover:bg-surface-100 hover:text-primary-600'
-                 }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Auth Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            {user ? (
-              <div className="flex items-center gap-3">
-                 {user.role === 'admin' && !isAdminArea && (
-                   <Link to="/admin" className="text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors">
-                     Admin Panel
-                   </Link>
-                 )}
-                {user.role === 'student' && (
-                  <Link to="/my-bookings" className="text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors">
-                    My Bookings
-                  </Link>
-                )}
-                {user.role === 'teacher' && (
-                  <Link to="/dashboard" className="text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors">
-                    Dashboard
-                  </Link>
-                )}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 max-w-[11.25rem]">
-                  <HiUser className="text-primary-600" />
-                  <span className="text-sm font-medium text-primary-700 truncate">{user.name}</span>
-                </div>
-                <button
-                  onClick={handleLogout}
-                  className="p-2 rounded-lg text-surface-500 hover:text-danger-500 hover:bg-red-50 transition-all"
-                  title="Logout"
+          <div className="hidden items-center gap-6 lg:flex">
+            {/* Desktop Nav */}
+            <div className="flex items-center gap-1">
+              {desktopLinks.map(link => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`rounded-lg px-3 py-2 text-sm font-medium leading-5 transition-colors ${
+                    isActive(link.path)
+                      ? 'bg-primary-50 text-primary-700'
+                      : 'text-surface-700 hover:bg-surface-100 hover:text-surface-900'
+                  }`}
                 >
-                  <HiLogout className="text-lg" />
-                </button>
-              </div>
-            ) : (
-              <>
-                <Link to="/login" className="px-4 py-2 text-sm font-medium text-surface-700 hover:text-primary-600 transition-colors">
-                  Login
+                  {link.label}
                 </Link>
-                 <Link to="/signup" className="ds-btn ds-btn-primary px-5 py-2">
-                   Sign Up
-                 </Link>
-              </>
-            )}
+              ))}
+            </div>
+
+            {/* Auth Buttons */}
+            <div className="flex items-center gap-3 border-l border-surface-200 pl-4">
+              {user ? (
+                <div className="flex items-center gap-3">
+                  {user.role === 'admin' && !isAdminArea && (
+                    <Link to="/admin" className="rounded-lg px-2 py-1 text-sm font-medium text-primary-700 hover:bg-primary-50">
+                      Admin Panel
+                    </Link>
+                  )}
+                  {user.role === 'student' && (
+                    <Link to="/my-bookings" className="rounded-lg px-2 py-1 text-sm font-medium text-primary-700 hover:bg-primary-50">
+                      My Bookings
+                    </Link>
+                  )}
+                  {user.role === 'teacher' && (
+                    <Link to="/dashboard" className="rounded-lg px-2 py-1 text-sm font-medium text-primary-700 hover:bg-primary-50">
+                      Dashboard
+                    </Link>
+                  )}
+                  <div className="flex max-w-44 items-center gap-2 rounded-full bg-primary-50 px-3 py-1.5">
+                    <HiUser className="text-primary-600" />
+                    <span className="truncate text-sm font-medium text-primary-700">{user.name}</span>
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="rounded-lg p-2 text-surface-500 transition-colors hover:bg-surface-100 hover:text-danger-500"
+                    title="Logout"
+                  >
+                    <HiLogout className="text-lg" />
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link to="/login" className="rounded-lg px-3 py-2 text-sm font-medium text-surface-700 hover:bg-surface-100 hover:text-surface-900">
+                    Login
+                  </Link>
+                  <Link to="/signup" className="ds-btn ds-btn-primary">
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg text-surface-600 hover:bg-surface-100"
+            className="rounded-lg p-2 text-surface-600 hover:bg-surface-100 lg:hidden"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileOpen ? <HiX className="text-xl" /> : <HiMenu className="text-xl" />}
           </button>
@@ -112,52 +115,52 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-surface-200 bg-white/95 backdrop-blur-xl animate-fade-in-up">
-          <div className="px-4 py-3 space-y-1">
-             {(isAdminArea ? [{ path: '/', label: 'Back to Home' }] : navLinks).map(link => (
+          <div className="space-y-2 px-4 py-4">
+            {(isAdminArea ? [{ path: '/', label: 'Back to Home' }] : navLinks).map(link => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? 'bg-primary-50 text-primary-700'
-                    : 'text-surface-700 hover:bg-surface-100'
+                    : 'text-surface-700 hover:bg-surface-100 hover:text-surface-900'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="border-t border-surface-200 pt-3 mt-3">
+            <div className="mt-2 border-t border-surface-200 pt-3">
               {user ? (
                 <>
                   {user.role === 'admin' && (
-                    <Link to="/admin" onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-lg text-sm font-medium text-accent-600">
+                    <Link to="/admin" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-primary-700 hover:bg-primary-50">
                       Admin Panel
                     </Link>
                   )}
                   {user.role === 'teacher' && (
-                    <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-lg text-sm font-medium text-primary-600">
+                    <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-primary-700 hover:bg-primary-50">
                       Dashboard
                     </Link>
                   )}
                   {user.role === 'student' && (
-                    <Link to="/my-bookings" onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-lg text-sm font-medium text-primary-600">
+                    <Link to="/my-bookings" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-primary-700 hover:bg-primary-50">
                       My Bookings
                     </Link>
                   )}
-                  <div className="px-4 py-2 text-sm text-surface-500">
+                  <div className="rounded-lg px-3 py-2 text-sm text-surface-500">
                     Logged in as <span className="font-semibold text-primary-600">{user.name}</span>
                   </div>
-                  <button onClick={handleLogout} className="w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-danger-500 hover:bg-red-50">
+                  <button onClick={handleLogout} className="w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-danger-500 hover:bg-red-50">
                     Logout
                   </button>
                 </>
               ) : (
-                <div className="flex gap-3 px-4">
-                  <Link to="/login" onClick={() => setMobileOpen(false)} className="ds-btn ds-btn-outline flex-1 py-2.5">
+                <div className="flex items-center gap-3 pt-1">
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className="ds-btn ds-btn-outline flex-1">
                     Login
                   </Link>
-                  <Link to="/signup" onClick={() => setMobileOpen(false)} className="ds-btn ds-btn-primary flex-1 py-2.5">
+                  <Link to="/signup" onClick={() => setMobileOpen(false)} className="ds-btn ds-btn-primary flex-1">
                     Sign Up
                   </Link>
                 </div>
