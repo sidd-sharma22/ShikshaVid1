@@ -60,12 +60,20 @@ const AdminPanel = () => {
   return (
     <div className="ds-page">
       <div className="ds-container py-6">
-        <h1 className="text-2xl font-bold text-surface-900 mb-6">Admin <span className="gradient-text">Panel</span></h1>
+        <h1 className="mb-6 text-2xl font-bold text-surface-900">Admin <span className="gradient-text">Panel</span></h1>
 
         {/* Tabs */}
-        <div className="sticky top-[calc(var(--app-nav-height)+var(--space-2))] sm:top-[calc(var(--app-nav-height)+var(--space-3))] z-20 flex gap-1 bg-white/95 backdrop-blur rounded-xl p-1 border border-surface-100 mb-6 overflow-x-auto shadow-sm">
+        <div className="sticky top-[calc(var(--app-nav-height)+var(--space-2))] z-20 mb-6 flex gap-[var(--space-2)] overflow-x-auto rounded-xl border border-surface-200 bg-white/95 p-[var(--space-2)] shadow-sm backdrop-blur sm:top-[calc(var(--app-nav-height)+var(--space-3))]">
           {tabs.map(tab => (
-            <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${activeTab === tab.id ? 'bg-primary-50 text-primary-600' : 'text-surface-500 hover:text-surface-700'}`}>
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`whitespace-nowrap rounded-lg border-b-2 px-4 py-2.5 text-sm font-medium transition-all ${
+                activeTab === tab.id
+                  ? 'border-primary-600 bg-primary-50 text-primary-700 shadow-sm'
+                  : 'border-transparent text-surface-500 hover:bg-surface-50 hover:text-surface-700'
+              }`}
+            >
               {tab.label}
             </button>
           ))}
@@ -73,8 +81,8 @@ const AdminPanel = () => {
 
         {/* Dashboard Tab */}
         {activeTab === 'dashboard' && dashboard && (
-          <div className="space-y-6 animate-fade-in-up">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="grid grid-cols-1 gap-[var(--space-5)] sm:grid-cols-2 lg:grid-cols-4">
               {[
                 { icon: HiUsers, label: 'Students', value: dashboard.users.totalStudents, color: 'text-primary-500', bg: 'bg-primary-50' },
                 { icon: HiUsers, label: 'Teachers', value: dashboard.users.totalTeachers, color: 'text-emerald-500', bg: 'bg-emerald-50' },
@@ -85,20 +93,24 @@ const AdminPanel = () => {
                 { icon: HiCalendar, label: 'Pending', value: dashboard.bookings.pending, color: 'text-orange-500', bg: 'bg-orange-50' },
                 { icon: HiUsers, label: 'Active Teachers', value: dashboard.users.activeTeachers, color: 'text-teal-500', bg: 'bg-teal-50' },
               ].map((s, i) => (
-                <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-surface-100">
-                  <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center mb-3`}><s.icon className={`text-xl ${s.color}`} /></div>
-                  <p className="text-2xl font-bold text-surface-800">{s.value}</p>
-                  <p className="text-xs text-surface-400 mt-1">{s.label}</p>
+                <div key={i} className="rounded-2xl border border-surface-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+                  <div className="flex flex-col items-start gap-[var(--space-3)]">
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${s.bg}`}>
+                      <s.icon className={`text-xl ${s.color}`} />
+                    </div>
+                    <p className="text-3xl font-extrabold leading-none text-surface-900">{s.value}</p>
+                    <p className="text-xs font-medium tracking-wide text-surface-500/75">{s.label}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* Top Teachers */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-surface-100">
-              <h3 className="text-lg font-bold text-surface-800 mb-4">🏆 Top Teachers</h3>
-              <div className="space-y-2">
+            <div className="rounded-2xl border border-surface-200 bg-white p-7 shadow-sm">
+              <h3 className="mb-5 text-xl font-extrabold tracking-tight text-surface-900">🏆 Top Teachers</h3>
+              <div className="space-y-3">
                 {dashboard.topTeachers?.map((t, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 bg-surface-50 rounded-xl">
+                  <div key={i} className="flex items-center justify-between rounded-xl border border-surface-100 bg-surface-50 p-4 transition-shadow hover:shadow-sm">
                     <div className="flex items-center gap-3">
                       <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center text-white text-sm font-bold">{i + 1}</span>
                       <span className="font-medium text-surface-800 text-sm">{t.userId?.name || 'Teacher'}</span>
