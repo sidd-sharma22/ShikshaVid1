@@ -58,12 +58,12 @@ const AdminPanel = () => {
   if (loading) return <div className="min-h-screen flex items-center justify-center pt-28"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="ds-page">
+      <div className="ds-container py-6">
         <h1 className="text-2xl font-bold text-surface-900 mb-6">Admin <span className="gradient-text">Panel</span></h1>
 
         {/* Tabs */}
-        <div className="sticky top-[80px] sm:top-[84px] z-20 flex gap-1 bg-white/95 backdrop-blur rounded-xl p-1 border border-surface-100 mb-6 overflow-x-auto shadow-sm">
+        <div className="sticky top-[calc(var(--app-nav-height)+var(--space-2))] sm:top-[calc(var(--app-nav-height)+var(--space-3))] z-20 flex gap-1 bg-white/95 backdrop-blur rounded-xl p-1 border border-surface-100 mb-6 overflow-x-auto shadow-sm">
           {tabs.map(tab => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${activeTab === tab.id ? 'bg-primary-50 text-primary-600' : 'text-surface-500 hover:text-surface-700'}`}>
               {tab.label}

@@ -48,22 +48,22 @@ const TutorListing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="ds-page">
+      <div className="ds-container py-6">
         <div className="mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-surface-900">Find <span className="gradient-text">Best-Fit Tutors</span></h1>
-          <p className="text-surface-500 mt-1">Smart recommendations based on your needs</p>
+          <h1 className="ds-heading-lg">Find <span className="gradient-text">Best-Fit Tutors</span></h1>
+          <p className="ds-text-muted mt-1">Smart recommendations based on your needs</p>
         </div>
 
-        <form onSubmit={(e) => { e.preventDefault(); fetchTeachers(); }} className="bg-white rounded-2xl shadow-sm border border-surface-100 p-4 mb-6">
+        <form onSubmit={(e) => { e.preventDefault(); fetchTeachers(); }} className="ds-card p-4 mb-6">
           <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1 relative">
-              <HiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-surface-400" />
-              <input type="text" value={filters.subject} onChange={e => setFilters({...filters, subject: e.target.value})} placeholder="Search by subject..." className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-surface-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none text-sm" />
+            <div className="ds-input-shell flex-1">
+              <HiSearch className="text-surface-400" />
+              <input type="text" value={filters.subject} onChange={e => setFilters({...filters, subject: e.target.value})} placeholder="Search by subject..." className="ds-input-field" />
             </div>
             <div className="flex gap-2">
-              <button type="button" onClick={() => setShowFilters(!showFilters)} className={`px-4 py-2.5 rounded-xl border text-sm font-medium flex items-center gap-2 transition-all ${showFilters ? 'border-primary-400 bg-primary-50 text-primary-600' : 'border-surface-200 text-surface-600'}`}><HiAdjustments /> Filters</button>
-              <button type="submit" className="px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold rounded-xl shadow-md transition-all">Search</button>
+              <button type="button" onClick={() => setShowFilters(!showFilters)} className={`ds-btn ds-btn-outline ${showFilters ? '!border-primary-400 !bg-primary-50 !text-primary-600' : '!text-surface-600'}`}><HiAdjustments /> Filters</button>
+              <button type="submit" className="ds-btn ds-btn-primary">Search</button>
             </div>
           </div>
           {showFilters && (
@@ -78,7 +78,7 @@ const TutorListing = () => {
 
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <p className="text-sm text-surface-500">{loading ? 'Searching...' : `${teachers.length} tutors found`}</p>
-          <div className="flex gap-1 bg-white rounded-xl p-1 border border-surface-100">
+          <div className="ds-card flex gap-1 p-1">
             {sortOptions.map(opt => (
               <button key={opt.value} onClick={() => setFilters({...filters, sort: opt.value})} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${filters.sort === opt.value ? 'bg-primary-50 text-primary-600' : 'text-surface-500'}`}>{opt.label}</button>
             ))}
@@ -87,7 +87,7 @@ const TutorListing = () => {
 
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1,2,3,4,5,6].map(i => (<div key={i} className="bg-white rounded-2xl p-5 space-y-4"><div className="flex gap-4"><div className="w-14 h-14 rounded-2xl shimmer" /><div className="flex-1 space-y-2"><div className="h-4 w-32 rounded shimmer" /><div className="h-3 w-20 rounded shimmer" /></div></div><div className="h-20 rounded-xl shimmer" /><div className="h-10 rounded-xl shimmer" /></div>))}
+            {[1,2,3,4,5,6].map(i => (<div key={i} className="ds-card p-5 space-y-4"><div className="flex gap-4"><div className="w-14 h-14 rounded-2xl shimmer" /><div className="flex-1 space-y-2"><div className="h-4 w-32 rounded shimmer" /><div className="h-3 w-20 rounded shimmer" /></div></div><div className="h-20 rounded-xl shimmer" /><div className="h-10 rounded-xl shimmer" /></div>))}
           </div>
         ) : teachers.length === 0 ? (
           <div className="text-center py-20"><div className="text-6xl mb-4">🔍</div><h3 className="text-xl font-bold text-surface-800">No tutors found</h3><p className="text-surface-500 mt-2">Try adjusting your filters</p></div>

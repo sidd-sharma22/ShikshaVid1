@@ -43,7 +43,7 @@ const AppContent = () => {
       </main>
       <Footer />
       <Toaster position="top-right" toastOptions={{
-        style: { borderRadius: '12px', background: '#1e293b', color: '#fff', fontSize: '14px' }
+        style: { borderRadius: '0.75rem', background: '#1e293b', color: '#fff', fontSize: '0.875rem' }
       }} />
     </div>
   );

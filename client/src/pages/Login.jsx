@@ -30,43 +30,43 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-accent-50 px-4 pt-24 sm:pt-28 pb-10">
+    <div className="ds-page-center">
       <div className="w-full max-w-md animate-fade-in-up">
-        <div className="text-center mb-8">
+        <div className="mb-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-xl shadow-primary-500/30 mb-4">
             <HiAcademicCap className="text-white text-3xl" />
           </div>
-          <h1 className="text-3xl font-bold text-surface-900">Welcome Back</h1>
-          <p className="text-surface-500 mt-1">Sign in to continue learning</p>
+          <h1 className="ds-heading-lg">Login</h1>
+          <p className="ds-text-muted mt-1">Sign in to continue learning</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl shadow-surface-200/60 p-6 sm:p-8 border border-surface-100">
-          <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="ds-card p-6 sm:p-8 shadow-xl shadow-surface-200/60">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-surface-700 mb-1.5">Email</label>
-              <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+              <label className="ds-label">Email</label>
+              <div className="ds-input-shell">
                 <HiMail className="text-surface-400 text-lg shrink-0" />
                 <input
                   type="email"
                   required
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
-                  className="w-full py-3.5 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
+                  className="ds-input-field"
                   placeholder="you@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-surface-700 mb-1.5">Password</label>
-              <div className="flex items-center rounded-xl border border-surface-200 bg-white px-3 focus-within:border-primary-400 focus-within:ring-2 focus-within:ring-primary-100 transition-all">
+              <label className="ds-label">Password</label>
+              <div className="ds-input-shell">
                 <HiLockClosed className="text-surface-400 text-lg shrink-0" />
                 <input
                   type={showPass ? 'text' : 'password'}
                   required
                   value={form.password}
                   onChange={e => setForm({ ...form, password: e.target.value })}
-                  className="w-full py-3.5 pl-2 pr-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
+                  className="ds-input-field pr-2"
                   placeholder="••••••••"
                 />
                 <button type="button" onClick={() => setShowPass(!showPass)} className="text-surface-400 hover:text-surface-600 p-1">
@@ -78,7 +78,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 transition-all disabled:opacity-50"
+              className="w-full ds-btn ds-btn-primary"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
@@ -87,7 +87,7 @@ const Login = () => {
           <div className="mt-6 text-center">
             <p className="text-sm text-surface-500">
               Don't have an account?{' '}
-              <Link to="/signup" className="text-primary-600 font-semibold hover:text-primary-700">Sign Up</Link>
+              <Link to="/signup" className="font-semibold text-primary-600 hover:text-primary-700">Sign Up</Link>
             </p>
           </div>
 

@@ -29,8 +29,8 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[72px] gap-3">
+      <div className="ds-container">
+        <div className="flex items-center justify-between h-[4.5rem] gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/40 transition-shadow">
@@ -75,7 +75,7 @@ const Navbar = () => {
                     Dashboard
                   </Link>
                 )}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 max-w-[180px]">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 max-w-[11.25rem]">
                   <HiUser className="text-primary-600" />
                   <span className="text-sm font-medium text-primary-700 truncate">{user.name}</span>
                 </div>
@@ -92,9 +92,9 @@ const Navbar = () => {
                 <Link to="/login" className="px-4 py-2 text-sm font-medium text-surface-700 hover:text-primary-600 transition-colors">
                   Login
                 </Link>
-                <Link to="/signup" className="px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 transition-all">
-                  Sign Up
-                </Link>
+                 <Link to="/signup" className="ds-btn ds-btn-primary px-5 py-2">
+                   Sign Up
+                 </Link>
               </>
             )}
           </div>
@@ -154,10 +154,10 @@ const Navbar = () => {
                 </>
               ) : (
                 <div className="flex gap-3 px-4">
-                  <Link to="/login" onClick={() => setMobileOpen(false)} className="flex-1 py-2.5 text-center text-sm font-medium rounded-xl border border-primary-200 text-primary-600">
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className="ds-btn ds-btn-outline flex-1 py-2.5">
                     Login
                   </Link>
-                  <Link to="/signup" onClick={() => setMobileOpen(false)} className="flex-1 py-2.5 text-center text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl">
+                  <Link to="/signup" onClick={() => setMobileOpen(false)} className="ds-btn ds-btn-primary flex-1 py-2.5">
                     Sign Up
                   </Link>
                 </div>

@@ -74,7 +74,7 @@ const Home = () => {
     <div className="min-h-screen bg-surface-50">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-20">
+        <div className="relative ds-container pt-28 sm:pt-32 pb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium">
@@ -82,7 +82,7 @@ const Home = () => {
                 Trusted by 10,000+ students across India
               </span>
 
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+              <h1 className="mt-6 ds-heading-xl !text-white">
                 Find Your
                 <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
                   Best-Fit Tutor
@@ -94,21 +94,21 @@ const Home = () => {
                 Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
               </p>
 
-              <form onSubmit={handleSearch} className="mt-8 bg-white rounded-2xl p-2 shadow-2xl shadow-black/25 border border-white/20">
+              <form onSubmit={handleSearch} className="ds-card mt-8 p-2 shadow-2xl shadow-black/25 border-white/20">
                 <div className="flex flex-col sm:flex-row gap-2">
-                  <div className="flex items-center flex-1 px-3 sm:px-4">
-                    <HiSearch className="text-surface-400 text-xl" />
+                  <div className="ds-input-shell flex-1 border-0 shadow-none px-3 sm:px-4">
+                    <HiSearch className="text-surface-400 text-xl shrink-0" />
                     <input
                       type="text"
                       placeholder="Search by subject (e.g., Mathematics)"
                       value={searchSubject}
                       onChange={(e) => setSearchSubject(e.target.value)}
-                      className="w-full py-3 pl-2 bg-transparent outline-none text-sm text-surface-800 placeholder:text-surface-400"
+                      className="ds-input-field"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold hover:from-primary-600 hover:to-primary-700 transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto ds-btn ds-btn-primary px-6 py-3"
                   >
                     <HiLocationMarker />
                     Find Tutors
@@ -154,9 +154,9 @@ const Home = () => {
       </section>
 
       <section className="py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="ds-container">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900">
+            <h2 className="ds-heading-lg">
               Why Choose <span className="gradient-text">ShikshaVid</span>?
             </h2>
             <p className="mt-3 text-surface-500">A complete platform for discovery, trust and conversion.</p>
@@ -164,7 +164,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div key={feature.title} className="h-full rounded-2xl bg-white border border-surface-200 shadow-sm p-6 card-hover">
+              <div key={feature.title} className="ds-card h-full p-6 card-hover">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} text-white flex items-center justify-center shadow-lg`}>
                   <feature.icon className="text-xl" />
                 </div>
@@ -177,15 +177,15 @@ const Home = () => {
       </section>
 
       <section className="py-16 sm:py-20 bg-white border-y border-surface-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="ds-container">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900">How It Works</h2>
+            <h2 className="ds-heading-lg">How It Works</h2>
             <p className="mt-3 text-surface-500">Three simple steps to find the right tutor.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((step, idx) => (
-              <div key={step.title} className="h-full rounded-2xl bg-surface-50 border border-surface-200 p-6">
+              <div key={step.title} className="ds-card h-full bg-surface-50 p-6">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 text-white font-bold text-sm flex items-center justify-center">
                   {`0${idx + 1}`}
                 </div>
@@ -198,7 +198,7 @@ const Home = () => {
       </section>
 
       <section className="py-16 sm:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="ds-container max-w-5xl">
           <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-6 sm:px-10 py-12 shadow-2xl shadow-primary-500/25">
             <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
             <p className="mt-4 text-base sm:text-lg text-white/85">
@@ -207,13 +207,13 @@ const Home = () => {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/tutors"
-                className="px-8 py-3.5 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 shadow-xl transition-all"
+                className="ds-btn px-8 py-3.5 !bg-white !text-primary-600 shadow-xl hover:!bg-primary-50"
               >
                 Find Tutors Now
               </Link>
               <Link
                 to="/signup"
-                className="px-8 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 transition-all"
+                className="ds-btn px-8 py-3.5 !bg-white/10 !border-white/30 !text-white hover:!bg-white/20"
               >
                 Register as Teacher
               </Link>

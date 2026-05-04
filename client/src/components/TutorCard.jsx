@@ -7,7 +7,7 @@ const TutorCard = ({ teacher }) => {
   const reasons = teacher.whyRecommended || [];
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-surface-100 card-hover overflow-hidden animate-fade-in-up">
+    <div className="ds-card card-hover overflow-hidden animate-fade-in-up">
       {/* Score Badge */}
       {score > 0 && (
         <div className="bg-gradient-to-r from-primary-500 to-accent-500 px-4 py-2 flex items-center justify-between">
@@ -86,7 +86,7 @@ const TutorCard = ({ teacher }) => {
         {/* Action */}
         <Link
           to={`/tutor/${teacher._id}`}
-          className="mt-4 block w-full py-2.5 text-center text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl hover:from-primary-600 hover:to-primary-700 shadow-md shadow-primary-500/20 hover:shadow-primary-500/40 transition-all"
+          className="mt-4 ds-btn ds-btn-primary w-full"
         >
           View Profile
         </Link>

@@ -4,7 +4,7 @@ import { teacherAPI } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { HiStar, HiLocationMarker } from 'react-icons/hi';
 
-const mapContainerStyle = { width: '100%', height: 'calc(100vh - 72px)' };
+const mapContainerStyle = { width: '100%', height: 'calc(100vh - var(--app-nav-height))' };
 const defaultCenter = { lat: 26.9124, lng: 75.7873 }; // Jaipur
 
 const MapView = () => {
@@ -57,15 +57,15 @@ const MapView = () => {
   // Fallback when no Google Maps API key
   if (!apiKey) {
     return (
-      <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="ds-page">
+        <div className="ds-container py-6">
           <h1 className="text-2xl font-bold text-surface-900 mb-4">📍 Map View</h1>
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-surface-100">
+          <div className="ds-card p-8">
             <div className="text-center py-12">
               <div className="text-6xl mb-4">🗺️</div>
               <h3 className="text-xl font-bold text-surface-800">Google Maps API Key Required</h3>
               <p className="text-surface-500 mt-2 max-w-md mx-auto">Add your Google Maps API key to <code className="bg-surface-100 px-2 py-0.5 rounded text-sm">VITE_GOOGLE_MAPS_KEY</code> in your client .env file to enable the interactive map.</p>
-              <Link to="/tutors" className="inline-block mt-6 px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold rounded-xl">Browse Tutors Instead</Link>
+               <Link to="/tutors" className="inline-block mt-6 ds-btn ds-btn-primary">Browse Tutors Instead</Link>
             </div>
             {/* Show list view of markers */}
             {markers.length > 0 && (
@@ -87,9 +87,9 @@ const MapView = () => {
 
   if (loadError) {
     return (
-      <div className="min-h-screen bg-surface-50 pt-24 sm:pt-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-surface-100">
+      <div className="ds-page">
+        <div className="ds-container max-w-4xl py-6">
+          <div className="ds-card p-6">
             <h2 className="text-lg font-bold text-danger-500">Unable to load Google Map</h2>
             <p className="text-sm text-surface-600 mt-2">
               Check that Google Maps JavaScript API is enabled, billing is active, and your key restrictions allow this domain.
@@ -105,7 +105,7 @@ const MapView = () => {
   if (!isLoaded) return <div className="min-h-screen flex items-center justify-center pt-24 sm:pt-28"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
 
   return (
-    <div className="pt-[72px]">
+    <div className="pt-[var(--app-nav-height)]">
       <GoogleMap mapContainerStyle={mapContainerStyle} zoom={13} center={center}
         options={{ styles: [{ featureType: 'poi', stylers: [{ visibility: 'off' }] }], disableDefaultUI: false, zoomControl: true }}>
         {/* User location marker */}
