@@ -178,7 +178,7 @@ body {
 .ds-page {
   min-height: 100vh;
   background: var(--color-background-canvas);
-  padding-top: calc(var(--app-nav-height) + var(--space-8));
+  padding-top: var(--space-8);
   padding-bottom: var(--space-10);
 }
 
@@ -188,7 +188,7 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(145deg, var(--color-primary-50), #ffffff, var(--color-secondary-50));
-  padding: calc(var(--app-nav-height) + var(--space-8)) var(--space-4) var(--space-10);
+  padding: var(--space-8) var(--space-4) var(--space-10);
 }
 
 .ds-container {

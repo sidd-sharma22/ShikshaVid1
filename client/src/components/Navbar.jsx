@@ -28,7 +28,7 @@ const Navbar = () => {
   const desktopLinks = isAdminArea ? [{ path: '/', label: 'Back to Home' }] : navLinks;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
+    <nav className="sticky top-0 z-50 border-b border-surface-200/70 bg-white/95 backdrop-blur-xl shadow-sm">
       <div className="ds-container">
         <div className="flex h-[var(--app-nav-height)] items-center justify-between gap-[var(--space-4)] px-[var(--space-2)] sm:px-[var(--space-3)]">
           {/* Logo */}

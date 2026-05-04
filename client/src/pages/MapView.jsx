@@ -105,7 +105,7 @@ const MapView = () => {
   if (!isLoaded) return <div className="min-h-screen flex items-center justify-center pt-24 sm:pt-28"><div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin" /></div>;
 
   return (
-    <div className="pt-[var(--app-nav-height)]">
+    <div>
       <GoogleMap mapContainerStyle={mapContainerStyle} zoom={13} center={center}
         options={{ styles: [{ featureType: 'poi', stylers: [{ visibility: 'off' }] }], disableDefaultUI: false, zoomControl: true }}>
         {/* User location marker */}

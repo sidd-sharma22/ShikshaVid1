@@ -71,7 +71,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-50 pt-[var(--app-nav-height)]">
+    <div className="min-h-screen bg-surface-50">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
         <div className="relative ds-container pt-16 sm:pt-20 pb-20">
