@@ -1,8 +1,5 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
-  HiSearch,
-  HiLocationMarker,
   HiMap,
   HiShieldCheck,
   HiCurrencyRupee,
@@ -12,16 +9,6 @@ import {
 } from 'react-icons/hi';
 
 const Home = () => {
-  const [searchSubject, setSearchSubject] = useState('');
-  const navigate = useNavigate();
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`/tutors${searchSubject ? `?subject=${searchSubject}` : ''}`);
-  };
-
-  const popularSubjects = ['Mathematics', 'Physics', 'Chemistry', 'English', 'Biology'];
-
   const highlights = [
     { label: 'Verified Tutors', value: '500+', icon: HiShieldCheck },
     { label: 'Happy Students', value: '10K+', icon: HiUserGroup },
@@ -74,88 +61,29 @@ const Home = () => {
     <div className="min-h-screen bg-surface-50">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative ds-container py-[calc(var(--space-10)+var(--space-2))] sm:py-[calc(var(--space-10)+var(--space-8))]">
-          <div className="grid grid-cols-1 items-start gap-[calc(var(--space-10)+var(--space-4))] lg:grid-cols-2 lg:items-center">
-            <div className="space-y-[var(--space-8)]">
-              <span className="inline-flex items-center gap-[var(--space-2)] rounded-full border border-white/20 bg-white/10 px-[var(--space-4)] py-[var(--space-2)] text-sm font-medium">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 pulse-dot" />
-                Trusted by 10,000+ students across India
-              </span>
-
-              <div className="space-y-[var(--space-5)]">
-                <h1 className="ds-heading-xl !text-[clamp(2.75rem,2rem+2.2vw,4.25rem)] !font-black !text-white">
-                  Find Your
-                  <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
-                    Best-Fit Tutor
-                  </span>
-                  Nearby
-                </h1>
-                <p className="max-w-xl text-sm text-white/75 sm:text-base">
-                  Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
-                </p>
-              </div>
-
-            <div className="space-y-[var(--space-4)] py-[var(--space-2)]">
-                <div className="ds-card mx-auto w-full max-w-[35rem] border-white/20 bg-white/95 p-[var(--space-4)] shadow-2xl shadow-black/25 lg:mx-0">
-                  <p className="mb-[var(--space-3)] text-sm font-semibold text-surface-700">Start your tutor search</p>
-                  <form onSubmit={handleSearch}>
-                    <div className="grid grid-cols-1 items-center gap-[var(--space-3)] md:grid-cols-[minmax(0,1fr)_auto]">
-                      <div className="ds-input-shell min-h-14 w-full border-surface-200 px-[var(--space-4)]">
-                        <HiSearch className="shrink-0 text-xl text-surface-400" />
-                        <input
-                          type="text"
-                          placeholder="Search by subject (e.g., Mathematics)"
-                          value={searchSubject}
-                          onChange={(e) => setSearchSubject(e.target.value)}
-                          className="ds-input-field !py-[var(--space-4)]"
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="ds-btn ds-btn-primary h-14 w-full px-[var(--space-6)] text-base shadow-xl shadow-primary-500/40 md:w-auto"
-                      >
-                        <HiLocationMarker />
-                        Find Tutors
-                      </button>
-                    </div>
-                  </form>
-                </div>
-
-                <div className="flex flex-wrap gap-[var(--space-2)]">
-                  {popularSubjects.map((subject) => (
-                    <Link
-                      key={subject}
-                      to={`/tutors?subject=${subject}`}
-                      className="rounded-full border border-white/20 bg-white/10 px-[var(--space-3)] py-1.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/20"
-                    >
-                      {subject}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+        <div className="relative ds-container py-[calc(var(--space-10)+var(--space-4))] sm:py-[calc(var(--space-10)+var(--space-8))]">
+          <div className="grid grid-cols-1 items-center gap-[calc(var(--space-10)+var(--space-4))] lg:grid-cols-2">
+            <div className="space-y-[var(--space-5)]">
+              <h1 className="ds-heading-xl !text-[clamp(2.75rem,2rem+2.2vw,4.25rem)] !font-black !text-white">
+                Find Your
+                <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
+                  Best-Fit Tutor
+                </span>
+                Nearby
+              </h1>
+              <p className="max-w-xl text-sm text-white/75 sm:text-base">
+                Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
+              </p>
             </div>
 
-            <div className="space-y-[var(--space-4)]">
-              <div className="ds-card p-6 sm:p-7">
-                <h2 className="ds-heading-md">Why learners choose ShikshaVid</h2>
-                <p className="ds-text-muted mt-1">Built for hyperlocal, practical tutor discovery.</p>
-
-                <div className="mt-[var(--space-6)] grid grid-cols-1 gap-[var(--space-3)] sm:grid-cols-3">
-                  {highlights.map((item) => (
-                    <div key={item.label} className="ds-card bg-surface-50 p-4">
-                      <item.icon className="mb-[var(--space-2)] text-xl text-primary-600" />
-                      <p className="text-2xl font-bold text-surface-900">{item.value}</p>
-                      <p className="mt-1 text-xs text-surface-500">{item.label}</p>
-                    </div>
-                  ))}
+            <div className="grid grid-cols-1 gap-[var(--space-6)] sm:grid-cols-3">
+              {highlights.map((item) => (
+                <div key={item.label} className="flex flex-col items-center justify-center gap-[var(--space-2)] px-[var(--space-2)] py-[var(--space-4)] text-center">
+                  <item.icon className="text-[1.625rem] text-primary-200" />
+                  <p className="text-3xl font-extrabold leading-none text-white">{item.value}</p>
+                  <p className="text-sm text-white/75">{item.label}</p>
                 </div>
-              </div>
-
-              <div className="ds-card border-emerald-100 bg-emerald-50/90 p-4">
-                <p className="text-sm font-medium text-emerald-800">
-                  Live map support, verified profiles, and quick demo booking — all in one clean workflow.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
