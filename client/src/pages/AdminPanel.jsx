@@ -67,12 +67,12 @@ const AdminPanel = () => {
 
           {/* Tabs */}
           <div className="border-b border-surface-200 pb-[var(--space-4)]">
-            <div className="flex flex-wrap justify-between gap-[var(--space-4)]">
+            <div className="flex items-center justify-between gap-[var(--space-4)] flex-wrap">
               {tabs.map(tab => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`w-full rounded-lg border-b-2 px-[var(--space-3)] py-[var(--space-3)] text-sm font-medium transition-all ${
+                  className={`rounded-lg px-[var(--space-4)] py-[var(--space-2)] text-sm font-medium transition-all whitespace-nowrap ${
                     activeTab === tab.id
                       ? 'border-primary-600 bg-primary-50 text-primary-700'
                       : 'border-transparent text-surface-500 hover:bg-white hover:text-surface-700'
