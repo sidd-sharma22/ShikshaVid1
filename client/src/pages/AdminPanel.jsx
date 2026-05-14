@@ -60,14 +60,14 @@ const AdminPanel = () => {
   return (
     <div className="ds-page">
       <div className="ds-container pt-[var(--space-8)] pb-[var(--space-10)]">
-        <div className="space-y-[var(--space-8)]">
-          <div className="space-y-[var(--space-2)]">
+        <div className="flex flex-col gap-[var(--space-10)]">
+          <div className="pb-[var(--space-4)] border-b border-surface-200">
             <h1 className="text-2xl font-bold text-surface-900">Admin <span className="gradient-text">Panel</span></h1>
           </div>
 
           {/* Tabs */}
-          <div className="sticky top-[calc(var(--app-nav-height)+var(--space-2))] z-20 border-b border-surface-200/90 bg-surface-50/90 py-[var(--space-2)] backdrop-blur-sm sm:top-[calc(var(--app-nav-height)+var(--space-3))]">
-            <div className="grid grid-cols-2 gap-[var(--space-2)] sm:grid-cols-3 lg:grid-cols-6">
+          <div className="border-b border-surface-200 pb-[var(--space-4)]">
+            <div className="flex flex-wrap justify-between gap-[var(--space-4)]">
               {tabs.map(tab => (
                 <button
                   key={tab.id}
@@ -86,8 +86,11 @@ const AdminPanel = () => {
 
           {/* Dashboard Tab */}
           {activeTab === 'dashboard' && dashboard && (
-            <div className="space-y-[var(--space-8)] animate-fade-in-up">
-              <section className="grid grid-cols-1 gap-[var(--space-5)] sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col gap-[var(--space-10)] animate-fade-in-up">
+              <section className="flex flex-col gap-[var(--space-4)]">
+                <h2 className="text-lg font-semibold text-surface-700">Overview</h2>
+
+                <div className="grid grid-cols-1 gap-[var(--space-5)] sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { icon: HiUsers, label: 'Students', value: dashboard.users.totalStudents, color: 'text-primary-500', bg: 'bg-primary-50', tint: 'from-primary-50/40 to-white' },
                   { icon: HiUsers, label: 'Teachers', value: dashboard.users.totalTeachers, color: 'text-emerald-500', bg: 'bg-emerald-50', tint: 'from-emerald-50/40 to-white' },
@@ -108,10 +111,11 @@ const AdminPanel = () => {
                     </div>
                   </div>
                 ))}
+                </div>
               </section>
 
               {/* Top Teachers */}
-              <section className="space-y-[var(--space-4)]">
+              <section className="flex flex-col gap-[var(--space-5)] pt-[var(--space-6)]">
                 <h2 className="text-xl font-extrabold tracking-tight text-surface-900">Top Teachers</h2>
                 <div className="divide-y divide-surface-200 border-y border-surface-200">
                   {dashboard.topTeachers?.map((t, i) => (
