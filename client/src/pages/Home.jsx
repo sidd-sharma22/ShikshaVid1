@@ -61,9 +61,9 @@ const Home = () => {
     <div className="min-h-screen bg-surface-50">
       <section className="relative overflow-hidden bg-surface-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative ds-container py-[calc(var(--space-10)+var(--space-4))] sm:py-[calc(var(--space-10)+var(--space-8))]">
-          <div className="grid grid-cols-1 items-center gap-[calc(var(--space-10)+var(--space-4))] lg:grid-cols-2">
-            <div className="space-y-[var(--space-5)]">
+        <div className="relative ds-container py-[var(--space-10)] sm:py-[var(--space-12)]">
+          <div className="grid grid-cols-1 items-center gap-[var(--space-10)] lg:grid-cols-2">
+            <div className="flex flex-col gap-[var(--space-4)]">
               <h1 className="ds-heading-xl !text-[clamp(2.75rem,2rem+2.2vw,4.25rem)] !font-black !text-white">
                 Find Your
                 <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
@@ -71,14 +71,14 @@ const Home = () => {
                 </span>
                 Nearby
               </h1>
-              <p className="max-w-xl text-sm text-white/75 sm:text-base">
+              <p className="max-w-[480px] text-base text-white/80 leading-relaxed">
                 Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-[var(--space-6)] sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-[var(--space-5)] sm:grid-cols-2">
               {highlights.map((item) => (
-                <div key={item.label} className="flex flex-col items-center justify-center gap-[var(--space-2)] px-[var(--space-2)] py-[var(--space-4)] text-center">
+                <div key={item.label} className="flex flex-col items-center justify-center gap-[var(--space-2)] p-[var(--space-5)] text-center rounded-xl border border-white/10 backdrop-blur-sm">
                   <item.icon className="text-[1.625rem] text-primary-200" />
                   <p className="text-3xl font-extrabold leading-none text-white">{item.value}</p>
                   <p className="text-sm text-white/75">{item.label}</p>
@@ -89,7 +89,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-[var(--space-12)] sm:py-[var(--space-14)]">
         <div className="ds-container">
           <div className="text-center mb-10">
             <h2 className="ds-heading-lg">
@@ -98,7 +98,7 @@ const Home = () => {
             <p className="mt-3 text-surface-500">A complete platform for discovery, trust and conversion.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[var(--space-6)]">
             {features.map((feature) => (
               <div key={feature.title} className="ds-card h-full p-6 card-hover">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} text-white flex items-center justify-center shadow-lg`}>
@@ -133,8 +133,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="ds-container max-w-5xl">
+      <section className="py-[var(--space-12)] sm:py-[var(--space-14)]">
+        <div className="ds-container max-w-4xl">
           <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-6 sm:px-10 py-12 shadow-2xl shadow-primary-500/25">
             <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
             <p className="mt-4 text-base sm:text-lg text-white/85">
