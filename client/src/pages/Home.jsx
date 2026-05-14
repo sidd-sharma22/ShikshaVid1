@@ -13,6 +13,7 @@ const Home = () => {
     { label: 'Verified Tutors', value: '500+', icon: HiShieldCheck },
     { label: 'Happy Students', value: '10K+', icon: HiUserGroup },
     { label: 'Avg Rating', value: '4.8', icon: HiStar },
+    { label: 'Cities Covered', value: '25+', icon: HiMap },
   ];
 
   const features = [
@@ -58,105 +59,116 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-50">
-      <section className="relative overflow-hidden bg-surface-900 text-white">
+    <div className="min-h-screen bg-surface-50 flex flex-col gap-[var(--space-12)]">
+
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-surface-900 text-white py-[var(--space-12)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(129,140,248,0.35),transparent_35%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.3),transparent_35%),linear-gradient(160deg,#0f172a_0%,#1e1b4b_48%,#312e81_100%)]" />
-        <div className="relative ds-container py-[var(--space-10)] sm:py-[var(--space-12)]">
-          <div className="grid grid-cols-1 items-center gap-[var(--space-10)] lg:grid-cols-2">
+
+        <div className="relative ds-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--space-10)] items-center">
+
+            {/* LEFT */}
             <div className="flex flex-col gap-[var(--space-4)]">
-              <h1 className="ds-heading-xl !text-[clamp(2.75rem,2rem+2.2vw,4.25rem)] !font-black !text-white">
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white">
                 Find Your
                 <span className="block bg-gradient-to-r from-primary-200 via-white to-accent-300 bg-clip-text text-transparent">
                   Best-Fit Tutor
                 </span>
                 Nearby
               </h1>
+
               <p className="max-w-[480px] text-base text-white/80 leading-relaxed">
-                Discover top-rated offline tutors with smart matching, transparent pricing, and neighborhood-first results.
+                Discover top-rated offline tutors with smart matching,
+                transparent pricing, and neighborhood-first results.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-[var(--space-5)] sm:grid-cols-2">
+            {/* RIGHT */}
+            <div className="grid grid-cols-2 gap-[var(--space-5)]">
               {highlights.map((item) => (
-                <div key={item.label} className="flex flex-col items-center justify-center gap-[var(--space-2)] p-[var(--space-5)] text-center rounded-xl border border-white/10 backdrop-blur-sm">
-                  <item.icon className="text-[1.625rem] text-primary-200" />
-                  <p className="text-3xl font-extrabold leading-none text-white">{item.value}</p>
-                  <p className="text-sm text-white/75">{item.label}</p>
+                <div
+                  key={item.label}
+                  className="flex flex-col items-center justify-center gap-[var(--space-2)] p-[var(--space-5)] text-center rounded-xl border border-white/10 backdrop-blur-sm"
+                >
+                  <item.icon className="text-xl text-primary-200" />
+                  <p className="text-2xl font-bold text-white">{item.value}</p>
+                  <p className="text-sm text-white/70">{item.label}</p>
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </section>
 
-      <section className="py-[var(--space-12)] sm:py-[var(--space-14)]">
+      {/* FEATURES */}
+      <section className="py-[var(--space-12)]">
         <div className="ds-container">
-          <div className="text-center mb-10">
+          <div className="text-center mb-[var(--space-6)]">
             <h2 className="ds-heading-lg">
               Why Choose <span className="gradient-text">ShikshaVid</span>?
             </h2>
-            <p className="mt-3 text-surface-500">A complete platform for discovery, trust and conversion.</p>
+            <p className="mt-2 text-surface-500">A complete platform for discovery, trust and conversion.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[var(--space-6)]">
             {features.map((feature) => (
-              <div key={feature.title} className="ds-card h-full p-6 card-hover">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} text-white flex items-center justify-center shadow-lg`}>
-                  <feature.icon className="text-xl" />
+              <div key={feature.title} className="ds-card p-6 flex flex-col gap-[var(--space-3)]">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} text-white flex items-center justify-center`}>
+                  <feature.icon className="text-lg" />
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-surface-900">{feature.title}</h3>
-                <p className="mt-2 text-sm text-surface-600 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-lg font-semibold text-surface-900">{feature.title}</h3>
+                <p className="text-sm text-surface-500 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white border-y border-surface-100">
+      {/* HOW IT WORKS */}
+      <section className="py-[var(--space-12)] bg-white border-y border-surface-100">
         <div className="ds-container">
-          <div className="text-center mb-10">
+          <div className="text-center mb-[var(--space-6)]">
             <h2 className="ds-heading-lg">How It Works</h2>
-            <p className="mt-3 text-surface-500">Three simple steps to find the right tutor.</p>
+            <p className="mt-2 text-surface-500">Three simple steps to find the right tutor.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-6)]">
             {steps.map((step, idx) => (
-              <div key={step.title} className="ds-card h-full bg-surface-50 p-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 text-white font-bold text-sm flex items-center justify-center">
+              <div key={step.title} className="ds-card p-6 flex flex-col gap-[var(--space-3)]">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-white flex items-center justify-center text-sm font-bold">
                   {`0${idx + 1}`}
                 </div>
-                <h3 className="mt-4 text-xl font-bold text-surface-900">{step.title}</h3>
-                <p className="mt-2 text-sm text-surface-600 leading-relaxed">{step.desc}</p>
+                <h3 className="text-lg font-semibold text-surface-900">{step.title}</h3>
+                <p className="text-sm text-surface-500 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-[var(--space-12)] sm:py-[var(--space-14)]">
+      {/* CTA */}
+      <section className="py-[var(--space-12)]">
         <div className="ds-container max-w-4xl">
-          <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-6 sm:px-10 py-12 shadow-2xl shadow-primary-500/25">
-            <h2 className="text-3xl sm:text-4xl font-bold">Ready to Find Your Perfect Tutor?</h2>
-            <p className="mt-4 text-base sm:text-lg text-white/85">
+          <div className="rounded-2xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-center px-8 py-[var(--space-10)] shadow-lg mx-auto">
+            <h2 className="text-3xl font-bold">Ready to Find Your Perfect Tutor?</h2>
+            <p className="mt-3 text-white/85">
               Start with smart discovery and book your first demo class in minutes.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/tutors"
-                className="ds-btn px-8 py-3.5 !bg-white !text-primary-600 shadow-xl hover:!bg-primary-50"
-              >
+
+            <div className="mt-6 flex flex-wrap gap-[var(--space-4)] justify-center">
+              <Link to="/tutors" className="ds-btn px-6 py-3 !bg-white !text-primary-600">
                 Find Tutors Now
               </Link>
-              <Link
-                to="/signup"
-                className="ds-btn px-8 py-3.5 !bg-white/10 !border-white/30 !text-white hover:!bg-white/20"
-              >
+              <Link to="/signup" className="ds-btn px-6 py-3 !bg-white/10 !border-white/30 !text-white">
                 Register as Teacher
               </Link>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
